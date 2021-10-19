@@ -1,0 +1,9 @@
+This is the start of the server which will implement the RESTful API.
+
+Install modules using:
+npm install
+
+Run using:
+node app.js
+
+Note: the app will not respond unless there is a Postgres database running on the local machine!

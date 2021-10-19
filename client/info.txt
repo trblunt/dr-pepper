@@ -1,0 +1,6 @@
+This is a simple java script demonstrating how to make an http request to the RESTful endpoint.
+To compile and run:
+javac ServerRequestDemo.java
+java ServerRequestDemo.class
+
+Note: server is likely not running!
