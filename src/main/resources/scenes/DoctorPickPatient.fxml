@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Dr. Pepper's Pediactric Clinic" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox maxHeight="-Infinity" prefHeight="20.0" prefWidth="570.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dr. Pepper" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="394.205078125" />
+                  <Button maxHeight="-Infinity" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" text="Log out" />
+               </children>
+            </HBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Patients" />
+            <Accordion prefHeight="196.0" prefWidth="570.0">
+              <panes>
+                <TitledPane text="John Doe">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox prefHeight="78.0" prefWidth="567.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="243.0" text="Continue" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="65.0" />
+                                    <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="237.0" text="Remove" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Jane Doe">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Adam Smith">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+         </children>
+      </VBox>
+   </content>
+</TitledPane>

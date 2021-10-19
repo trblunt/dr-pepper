@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" text="Dr. Pepper's Pediatric Clinic" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <TabPane layoutY="1.0" prefHeight="458.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Current Visit">
+                  <content>
+                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="317.0" prefWidth="673.0">
+                           <children>
+                              <VBox layoutX="4.0" prefHeight="414.0" prefWidth="739.0">
+                                 <children>
+                                    <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe:">
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <HBox />
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="336.0" prefViewportHeight="258.0" prefViewportWidth="570.0" prefWidth="736.0" vbarPolicy="ALWAYS">
+                                       <content>
+                                          <GridPane prefHeight="334.0" prefWidth="712.0">
+                                             <children>
+                                                <TextField promptText="Weight" text="180lbs" GridPane.rowIndex="1" />
+                                                <TextField promptText="Height" text="5'11" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField text="98.5 F" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Insert Vitals" wrappingWidth="171.109375">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient is over 12" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <TextField layoutX="200.0" layoutY="69.0" text="100/60" GridPane.rowIndex="3" />
+                                                <TextArea prefHeight="200.0" prefWidth="200.0" text="John Doe's known allergies are..." GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.rowSpan="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Known Allergies" GridPane.rowIndex="4">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reason for visit today" GridPane.rowIndex="7">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <TextArea prefHeight="200.0" prefWidth="200.0" text="The patient..." GridPane.columnSpan="2147483647" GridPane.rowIndex="8" GridPane.rowSpan="2" />
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Tests/Perscribe">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox layoutX="4.0" prefHeight="414.0" prefWidth="738.0">
+                                 <children>
+                                    <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe:">
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <HBox />
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="385.0" prefViewportHeight="258.0" prefViewportWidth="570.0" prefWidth="738.0" vbarPolicy="ALWAYS">
+                                       <content>
+                                          <GridPane prefHeight="381.0" prefWidth="712.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Tests" wrappingWidth="171.109375">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4" GridPane.rowSpan="2" />
+                                                <TextField GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Test Results/Notes" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <TextField promptText="Perscription" GridPane.columnSpan="2" GridPane.rowIndex="9" />
+                                                <Button mnemonicParsing="false" text="Send to Pharmacy" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                                <Button mnemonicParsing="false" prefHeight="14.0" prefWidth="120.0" text="Submit" translateX="80.0" translateY="15.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                                   <GridPane.margin>
+                                                      <Insets />
+                                                   </GridPane.margin>
+                                                </Button>
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab text="Past History">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="317.0" prefWidth="673.0">
+                                 <children>
+                                    <VBox layoutX="3.0" prefHeight="414.0" prefWidth="740.0">
+                                       <children>
+                                          <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe:">
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <HBox />
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="384.0" prefViewportHeight="258.0" prefViewportWidth="570.0" prefWidth="740.0" vbarPolicy="ALWAYS">
+                                             <content>
+                                                <GridPane prefHeight="334.0" prefWidth="715.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Previous Health Issues" wrappingWidth="239.109375">
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" />
+                                                         </GridPane.margin>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient is over 12" GridPane.rowIndex="2" />
+                                                      <TextArea prefHeight="200.0" prefWidth="200.0" text="Patient has..." GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Previous Prescriptions" GridPane.rowIndex="5">
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" />
+                                                         </GridPane.margin>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Past Immunizations" GridPane.rowIndex="8">
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" />
+                                                         </GridPane.margin>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- Acetaminophen" wrappingWidth="166.0" GridPane.rowIndex="6">
+                                                         <GridPane.margin>
+                                                            <Insets left="15.0" />
+                                                         </GridPane.margin>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- Covid-19" GridPane.rowIndex="9">
+                                                         <GridPane.margin>
+                                                            <Insets left="15.0" />
+                                                         </GridPane.margin>
+                                                      </Text>
+                                                   </children>
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                </GridPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Past Visits">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="414.0" prefWidth="738.0">
+                                 <children>
+                                    <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe:">
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <HBox />
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="385.0" prefViewportHeight="258.0" prefViewportWidth="570.0" prefWidth="738.0" vbarPolicy="ALWAYS">
+                                       <content>
+                                          <GridPane prefHeight="381.0" prefWidth="712.0">
+                                             <children>
+                                                <TextArea prefHeight="200.0" prefWidth="200.0" text="The patient presented with..." GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.rowSpan="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="01/06/2020" GridPane.rowIndex="5">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="04/20/2020" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <TextArea prefHeight="200.0" prefWidth="200.0" text="The patient presented with..." GridPane.columnSpan="3" GridPane.rowIndex="6" GridPane.rowSpan="2" />
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="115.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="138.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Contact Patient">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="414.0" prefWidth="738.0">
+                                 <children>
+                                    <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe:">
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <HBox />
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="385.0" prefViewportHeight="258.0" prefViewportWidth="570.0" prefWidth="738.0" vbarPolicy="ALWAYS">
+                                       <content>
+                                          <GridPane prefHeight="381.0" prefWidth="712.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pharmacy:" GridPane.rowIndex="4">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance:" GridPane.rowIndex="6">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="602-555-1234" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="20.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="johndoe@gmail.com" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="20.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fry's" GridPane.rowIndex="5">
+                                                   <GridPane.margin>
+                                                      <Insets left="20.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Medicare" GridPane.rowIndex="7">
+                                                   <GridPane.margin>
+                                                      <Insets left="20.0" />
+                                                   </GridPane.margin>
+                                                </Text>
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="123.0" minHeight="6.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="144.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children></AnchorPane>
+  </content>
+</TitledPane>

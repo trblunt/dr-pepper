@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Dr. Pepper's Pediatric Clinic" textAlignment="CENTER" wrappingWidth="585.16015625">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please sign in">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <SplitPane dividerPositions="0.5" layoutX="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="189.0">
+               <effect>
+                  <Blend />
+               </effect>
+               <items>
+                  <Button mnemonicParsing="false" text="Patient" />
+                  <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Dr/Nurse" />
+               </items>
+            </SplitPane>
+         </children>
+      </HBox>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
+      <Button mnemonicParsing="false" text="Click here to register">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</VBox>
