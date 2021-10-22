@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="com.trblunt.DrPepper.FrontPageController" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Dr. Pepper's Pediatric Clinic" textAlignment="CENTER" wrappingWidth="585.16015625">
          <font>
@@ -27,15 +27,15 @@
                   <Blend />
                </effect>
                <items>
-                  <Button mnemonicParsing="false" text="Patient" />
-                  <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Dr/Nurse" />
+                  <Button mnemonicParsing="false" text="Patient" onAction="#handlePatientLoginAction" />
+                  <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Dr/Nurse" onAction="#handleStaffLoginAction" />
                </items>
             </SplitPane>
          </children>
       </HBox>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
-      <Button mnemonicParsing="false" text="Click here to register">
+      <Button mnemonicParsing="false" text="Click here to register" onAction="#handleRegisterAction">
          <font>
             <Font size="14.0" />
          </font>
