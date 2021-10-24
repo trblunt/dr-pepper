@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TitledPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Dr. Pepper's Pediactric Clinic" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane fx:controller="com.trblunt.DrPepper.DoctorPickPatientController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Dr. Pepper's Pediactric Clinic" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <content>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -27,7 +27,7 @@
                            <children>
                               <HBox prefHeight="78.0" prefWidth="567.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="243.0" text="Continue" />
+                                    <Button onAction="#handleSelectPatientAction" mnemonicParsing="false" prefHeight="63.0" prefWidth="243.0" text="Continue" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="65.0" />
                                     <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="237.0" text="Remove" />
                                  </children>
