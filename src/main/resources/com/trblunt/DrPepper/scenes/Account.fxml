@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" text="Dr. Pepper's Pediatric Clinic" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="506.0" prefWidth="748.0">
+         <children>
+            <TabPane layoutY="-1.0" prefHeight="469.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Account Information">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="93.0" layoutY="65.0" text="Name:" />
+                              <Label layoutX="43.0" layoutY="105.0" text="Email Address:" />
+                              <Label layoutX="98.0" layoutY="147.0" text="D.O.B." />
+                              <Label layoutX="12.0" layoutY="184.0" text="Current Residence:" />
+                              <Label layoutX="11.0" layoutY="228.0" text="Insurance Provider:" />
+                              <Label layoutX="37.0" layoutY="270.0" text="Insurance ID #:" />
+                              <Label layoutX="12.0" layoutY="309.0" text="Pharmacy Address:" />
+                              <ListView layoutX="175.0" layoutY="57.0" prefHeight="276.0" prefWidth="200.0" />
+                              <Label layoutX="244.0" layoutY="65.0" text="John Doe" />
+                              <Label layoutX="220.0" layoutY="105.0" text="jdoe57@asu.edu" />
+                              <Label layoutX="229.0" layoutY="147.0" text="Sept. 26, 1984" />
+                              <Label layoutX="240.0" layoutY="184.0" text="Tempe, AZ" />
+                              <Label layoutX="252.0" layoutY="228.0" text="Foobar" />
+                              <Label layoutX="235.0" layoutY="270.0" text="1234567890" />
+                              <Label layoutX="215.0" layoutY="309.0" text="123 Mahogany St." />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Previous Visits">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="335.0" layoutY="29.0" text="Visit History" />
+                              <ListView layoutX="275.0" layoutY="76.0" prefHeight="200.0" prefWidth="200.0" />
+                              <Label layoutX="290.0" layoutY="96.0" text="August 12, Check-up" />
+                              <Label layoutX="290.0" layoutY="145.0" text="August 28, Sick Visit" />
+                              <Label layoutX="290.0" layoutY="205.0" text="September 16, Sick Visit" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Message Doctor">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea layoutX="185.0" layoutY="67.0" prefHeight="200.0" prefWidth="381.0" />
+                              <Button layoutX="312.0" layoutY="290.0" mnemonicParsing="false" text="Message Doctor" />
+                              <Label layoutX="305.0" layoutY="31.0" text="Message your Doctor" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Modify Account Information">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="93.0" layoutY="65.0" text="Name:" />
+                              <Label layoutX="43.0" layoutY="105.0" text="Email Address:" />
+                              <Label layoutX="98.0" layoutY="147.0" text="D.O.B." />
+                              <Label layoutX="12.0" layoutY="184.0" text="Current Residence:" />
+                              <Label layoutX="11.0" layoutY="228.0" text="Insurance Provider:" />
+                              <Label layoutX="37.0" layoutY="270.0" text="Insurance ID #:" />
+                              <Label layoutX="12.0" layoutY="309.0" text="Pharmacy Address:" />
+                              <TextField layoutX="166.0" layoutY="60.0" />
+                              <TextField layoutX="166.0" layoutY="100.0" />
+                              <TextField layoutX="166.0" layoutY="142.0" />
+                              <TextField layoutX="166.0" layoutY="179.0" />
+                              <TextField layoutX="166.0" layoutY="223.0" />
+                              <TextField layoutX="166.0" layoutY="265.0" />
+                              <TextField layoutX="166.0" layoutY="304.0" />
+                              <Button layoutX="184.0" layoutY="356.0" mnemonicParsing="false" text="Update Information" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children></AnchorPane>
+  </content>
+</TitledPane>
