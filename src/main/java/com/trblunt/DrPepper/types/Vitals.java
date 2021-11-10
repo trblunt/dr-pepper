@@ -1,6 +1,7 @@
 package com.trblunt.DrPepper.types;
 
 public class Vitals {
+    // TODO: either make these public or add geter methods
     private int height;
     private int weight;
     private int temp;
@@ -15,4 +16,5 @@ public class Vitals {
         this.bloodPressure = bloodPressure;
         this.allergies = allergies;
     }
+
 }

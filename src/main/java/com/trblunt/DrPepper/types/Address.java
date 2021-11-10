@@ -13,5 +13,7 @@ public class Address {
         this.zipCode = zipCode;
     }
 
-    // probably need some sort of return adress as a string function
+    public String toString() {
+        return streetAddress + " " + city + " " + state + " " + zipCode;
+    }
 }

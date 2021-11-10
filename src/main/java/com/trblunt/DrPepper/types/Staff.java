@@ -1,6 +1,6 @@
 package com.trblunt.DrPepper.types;
 
-public class Staff extends User{
+public class Staff extends User{ // I honestly don't think we need this staff class at all
 
     protected String username;
     protected String password;
@@ -9,7 +9,4 @@ public class Staff extends User{
         super(name);
     }
     
-    public void login(String username, String password) {
-
-    }
 }
