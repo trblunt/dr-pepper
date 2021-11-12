@@ -19,34 +19,8 @@
             </HBox>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Patients" />
-            <Accordion prefHeight="196.0" prefWidth="570.0">
-              <panes>
-                <TitledPane text="John Doe">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <HBox prefHeight="78.0" prefWidth="567.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <Button onAction="#handleSelectPatientAction" mnemonicParsing="false" prefHeight="63.0" prefWidth="243.0" text="Continue" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="65.0" />
-                                    <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="237.0" text="Remove" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-                <TitledPane animated="false" text="Jane Doe">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </TitledPane>
-                <TitledPane animated="false" text="Adam Smith">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </TitledPane>
-              </panes>
+            <Accordion fx:id="accordion" prefHeight="196.0" prefWidth="570.0">
+              <panes />
             </Accordion>
          </children>
       </VBox>
