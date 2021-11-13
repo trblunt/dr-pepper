@@ -3,12 +3,13 @@ package com.trblunt.DrPepper.types;
 import java.util.ArrayList;
 
 public class Nurse extends Staff {
-    private ArrayList<Doctor> doctors;  /*this will be prepopulated in the database
+    public ArrayList<Doctor> doctors;  /*this will be prepopulated in the database
     and will be shown in the dropdown where the nurse picks what doctor the patient will
     be assigned to when they click check in*/
 	
     public Nurse(String name) {
         super(name);
+        //TODO populate doctors with the doctors from the database
     }
 
     // this happens when you click check in
@@ -27,7 +28,6 @@ public class Nurse extends Staff {
         return patient.record.patientHistory;
     }
 
-    // do we need this method?
     public void updatePatientHistory(Patient patient, String prevHealthIssues) { 
         patient.record.patientHistory.updatePrevHealthIssues(prevHealthIssues);
     }

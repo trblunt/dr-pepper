@@ -3,13 +3,16 @@ package com.trblunt.DrPepper.types;
 import java.util.ArrayList;
 
 public class History {
-    public ArrayList<Visit> pastVisits; // all of these need to be fetched from the database
+    public ArrayList<Visit> pastVisits; 
     public ArrayList<String> perscriptions;
     public ArrayList<String> immunizations;
     public String previousHealthIssues;    // I don't know where this information is going to be set originally
 
-    public History() {
-
+    public History(ArrayList<Visit> pastVisits, ArrayList<String> perscriptions, ArrayList<String> immunizations, String previousHealthIssues) {
+        this.pastVisits = pastVisits;
+        this.perscriptions = perscriptions;
+        this.immunizations = immunizations;
+        this.previousHealthIssues = previousHealthIssues;
     }
 
     public void addPastVisit(Visit v) {

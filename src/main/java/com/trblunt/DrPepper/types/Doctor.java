@@ -27,16 +27,8 @@ public class Doctor extends Staff{
         patient.record.patientHistory.addPerscription(perscription);
     }   
 
-    //public void continuePatientVisit(Patient patient) { 
-        // doesn't have any functionality besides switching panes
-    //}
-
     // adds tests/notes to the database for this visit
     public void enterFindings(Patient patient, String tests, String results) { 
         patient.record.currentVisit.setDoctorNotes(tests, results);
     }
-
-    //public void contactPatient(Patient patient, String message) { 
-        // this doen't actually do anything, just have this return the patients information?
-    //}
  }
