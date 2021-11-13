@@ -52,5 +52,7 @@ public class Patient extends User {
     public ArrayList<Visit> viewPastVisits() {
         return record.patientHistory.pastVisits;
     }
+
+
 	
 }

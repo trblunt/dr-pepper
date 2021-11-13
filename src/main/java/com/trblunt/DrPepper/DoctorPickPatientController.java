@@ -18,7 +18,7 @@ public class DoctorPickPatientController {
 	@FXML
 	public void initialize() {
 		ObservableList<TitledPane> panes = accordion.getPanes();
-		Patient testPatient = new Patient();
+		Patient testPatient = new Patient("John Doe"); //Parameters needed
 		for (int i=0; i<4; i++) {
 			PatientPane pane = new PatientPane(testPatient);
 			pane.isActive.addListener((isActive, oldVal, newVal) -> {

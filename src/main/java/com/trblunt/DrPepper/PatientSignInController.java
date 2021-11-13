@@ -12,4 +12,8 @@ public class PatientSignInController {
 		App.setRoot("Account");
 	}
 
+	@FXML protected void handleBackAction(ActionEvent event) throws IOException {
+		App.setRoot("FrontPage");
+	}
+
 }
