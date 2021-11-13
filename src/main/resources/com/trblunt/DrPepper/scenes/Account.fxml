@@ -96,7 +96,7 @@
                                <TextField fx:id="insurance" layoutX="208.0" layoutY="222.0" />
                                <TextField fx:id="insuranceID" layoutX="208.0" layoutY="264.0" />
                                <TextField fx:id="pharmacy" layoutX="208.0" layoutY="303.0" />
-                               <Button layoutX="675.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleLogoutAction" text="Log Out" />
+                               <Button layoutX="665.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleLogoutAction" text="Log Out" />
                            </children>
                         </AnchorPane>
                      </content>
