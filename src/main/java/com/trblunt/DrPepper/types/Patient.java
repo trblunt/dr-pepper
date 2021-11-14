@@ -42,7 +42,7 @@ public class Patient extends User {
     public void registerPatient(String legalName, String email, Address address, String dateOfBirth, String insuranceProvider, int insuranceID) {
         this.name = legalName;
         firstName = name.substring(0, name.indexOf(" "));
-        lastName = name.substring(name.indexOf("")+1);
+        lastName = name.substring(name.indexOf(" ")+1);
         this.email = email;
         this.address = address.toString();
         this.dateOfBirth = dateOfBirth;
@@ -56,7 +56,7 @@ public class Patient extends User {
         if (!name.isEmpty()) {
             this.name = name;
             firstName = name.substring(0, name.indexOf(" "));
-            lastName = name.substring(name.indexOf("")+1);
+            lastName = name.substring(name.indexOf(" ")+1);
             // update in database
         }
         if (!email.isEmpty()) {
