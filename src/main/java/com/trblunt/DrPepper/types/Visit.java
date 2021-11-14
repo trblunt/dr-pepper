@@ -27,7 +27,7 @@ public class Visit {
         this.notes = notes;
     }
 
-    // this is no be displayed on past visits tab in Patient and Doctor portal
+    // this is to be displayed on past visits tab in Patient and Doctor portal
     public String getDate() {
         return date;
     }
