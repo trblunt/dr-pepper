@@ -36,9 +36,23 @@ public class AccountController implements Initializable {
         App.setRoot("FrontPage");
     }
 
+    private Patient patient;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         update.setOnAction(this::getValues);
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+        nameLabel.setText(patient.firstName + " " + patient.lastName);
+        emailLabel.setText(patient.email);
+        dobLabel.setText(patient.dateOfBirth);
+        residenceLabel.setText(patient.address);
+        insuranceLabel.setText(patient.insuranceProvider);
+        insuranceIDLabel.setText(String.valueOf(patient.insuranceID));
+        pharmacyLabel.setText(patient.pharmacyAddress);
+
     }
 
     @FXML

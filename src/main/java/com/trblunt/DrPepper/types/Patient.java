@@ -7,9 +7,9 @@ public class Patient extends User {
     public PatientRecord record;
     public String firstName;
     public String lastName;
-    private String insuranceProvider;
-    private int insuranceID;
-    private String pharmacyAddress;
+    public String insuranceProvider;
+    public int insuranceID;
+    public String pharmacyAddress;
     public Doctor assignedDoctor;
 
     // use this if the patient is new
