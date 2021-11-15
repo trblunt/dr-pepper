@@ -30,6 +30,10 @@ public class DoctorPickPatientController {
 		}
 	}
 
+	@FXML protected void handleLogoutAction(ActionEvent event) throws IOException {
+		App.setRoot("FrontPage");
+	}
+
 	/* @FXML
 	protected void handleSelectPatientAction(ActionEvent event) throws IOException {
 		App.setRoot("DoctorAddPatientInfo");
