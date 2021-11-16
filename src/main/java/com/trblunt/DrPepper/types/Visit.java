@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public class Visit {
 
-    private String date;
-    private String tests;
-    private String notes;
-    private String reasonForVisit;
+    public String date;
+    public String tests;
+    public String notes;
+    public String reasonForVisit;
     public Vitals vitals;
 
     public Visit() {
@@ -16,7 +16,7 @@ public class Visit {
     }
 	
     // Nurse class uses this method after pressing submit on the Current Visit tab 
-    public void nurseSubmitVitals(int height, int weight, int temp, String bloodPressure, String allergies, String reasonForVisit) {
+    public void nurseSubmitVitals(int height, double weight, double temp, String bloodPressure, String allergies, String reasonForVisit) {
         vitals = new Vitals(height, weight, temp, bloodPressure, allergies);
         this.reasonForVisit = reasonForVisit;
     }
@@ -35,5 +35,9 @@ public class Visit {
     // this is no be displayed on past visits tab in Patient and Doctor portal
     public String getReasonForVisit() {
         return reasonForVisit;
+    }
+
+    public String asBlurb() {
+        return date + "\n" + this.reasonForVisit + "\n\n";
     }
 }

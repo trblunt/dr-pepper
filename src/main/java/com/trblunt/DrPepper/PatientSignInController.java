@@ -1,6 +1,8 @@
 package com.trblunt.DrPepper;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.sql.Date;
 import java.sql.Time;
 import java.text.DateFormat;
@@ -9,17 +11,21 @@ import java.text.SimpleDateFormat;
 
 import com.github.javafaker.Faker;
 import com.trblunt.DrPepper.types.Address;
+import com.trblunt.DrPepper.types.History;
 import com.trblunt.DrPepper.types.Patient;
+import com.trblunt.DrPepper.types.PatientRecord;
+import com.trblunt.DrPepper.types.Visit;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class PatientSignInController {
 
 
 	@FXML
-	private TextField birthdateInput;
+	private DatePicker birthdateInput;
 	@FXML
 	private TextField firstNameInput;
 	@FXML
@@ -27,7 +33,7 @@ public class PatientSignInController {
 
 	@FXML
 	protected void handleSignInAction(ActionEvent event) throws IOException {
-		Patient patient = getPatient(firstNameInput.getText(), lastNameInput.getText(), birthdateInput.getText());
+		Patient patient = getPatient(firstNameInput.getText(), lastNameInput.getText(), birthdateInput.getValue().format(DateTimeFormatter.ISO_LOCAL_DATE));
 		AccountController controller = App.setRoot("Account");
 		controller.setPatient(patient);
 	}
@@ -38,6 +44,7 @@ public class PatientSignInController {
 
 	protected Patient getPatient(String firstName, String lastName, String birthdate) {
 		// TODO: Fetch this data from the database
+
 		// Faker faker = new Faker();
 		String legalName = firstName + " " + lastName;
 		Patient patient = Server.getServer().patientForLogin(legalName, birthdate);

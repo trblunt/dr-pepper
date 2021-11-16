@@ -7,9 +7,11 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" text="Dr. Pepper's Pediatric Clinic" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trblunt.DrPepper.AccountController">
   <content>
@@ -52,11 +54,11 @@
                                <Label layoutX="333.0" layoutY="30.0" text="Visit History">
                                    <font>
                                        <Font size="16.0" />
-                                   </font></Label>
-                               <ListView layoutX="276.0" layoutY="74.0" prefHeight="200.0" prefWidth="200.0" />
-                               <Label layoutX="290.0" layoutY="96.0" text="August 12, Check-up" />
-                               <Label layoutX="290.0" layoutY="138.0" text="August 28, Sick Visit" />
-                               <Label layoutX="290.0" layoutY="179.0" text="September 16, Sick Visit" />
+                                   </font>
+                                </Label>
+                                    <Text fx:id="pastVisitsText" strokeType="OUTSIDE" strokeWidth="0.0" text="" layoutY="100.0" layoutX="25.0">
+                                    </Text>
+    
                                <Button layoutX="665.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleLogoutAction" text="Log Out" />
                            </children>
                         </AnchorPane>
@@ -91,7 +93,7 @@
                                <Label layoutX="54.0" layoutY="268.0" text="Insurance ID #:" />
                                <Label layoutX="55.0" layoutY="307.0" text="Pharmacy Address:" />
                                <TextField fx:id="email" layoutX="208.0" layoutY="99.0" />
-                               <TextField fx:id="dob" layoutX="208.0" layoutY="141.0" />
+                               <DatePicker fx:id="dob" layoutX="208.0" layoutY="141.0" />
                                <TextField fx:id="residence" layoutX="208.0" layoutY="181.0" />
                                <TextField fx:id="insurance" layoutX="208.0" layoutY="222.0" />
                                <TextField fx:id="insuranceID" layoutX="208.0" layoutY="264.0" />

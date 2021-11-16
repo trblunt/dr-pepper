@@ -8,6 +8,7 @@ public class Doctor extends Staff{
 
     public Doctor(String name) {
         super(name);
+        patients = new ArrayList<Patient>();
     }
 
     public void addPatient(Patient patient) {
@@ -30,5 +31,10 @@ public class Doctor extends Staff{
     // adds tests/notes to the database for this visit
     public void enterFindings(Patient patient, String tests, String results) { 
         patient.record.currentVisit.setDoctorNotes(tests, results);
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
  }

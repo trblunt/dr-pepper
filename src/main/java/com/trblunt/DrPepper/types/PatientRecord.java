@@ -9,5 +9,6 @@ public class PatientRecord {
     public PatientRecord(History history) {
         // populate patientHistory from the database
         patientHistory = history;
+        currentVisit = new Visit();
     }
 }
