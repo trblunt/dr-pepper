@@ -36,7 +36,7 @@ public class Server {
         try {
             // the cast is nessesary because the Java Date format was not working and Java is enforcing type casting
             String sql = "SELECT * FROM SUser U, Patient P WHERE U.user_id = P.user_id AND name = ? AND dob = CAST(? AS DATE);";
-            PreparedStatement sm = c.prepareStatement(sql);
+            PreparedStatement sm = c.prepareStatement(sql); // YYYY-MM-DD
             sm.setString(1, name);
             sm.setString(2, dob);
             System.out.println(sm.toString());
