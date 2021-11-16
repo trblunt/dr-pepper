@@ -1,6 +1,7 @@
 package com.trblunt.DrPepper.types;
 
 public class User {
+    public int userID;
     public String name;
     public String email;
     public String address;

@@ -3,7 +3,13 @@ package com.trblunt.DrPepper;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
+import com.github.javafaker.Faker;
 import com.trblunt.DrPepper.types.Address;
 import com.trblunt.DrPepper.types.History;
 import com.trblunt.DrPepper.types.Patient;
@@ -15,9 +21,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-import com.github.javafaker.Faker;
-
 public class PatientSignInController {
+
 
 	@FXML
 	private DatePicker birthdateInput;
@@ -39,8 +44,17 @@ public class PatientSignInController {
 
 	protected Patient getPatient(String firstName, String lastName, String birthdate) {
 		// TODO: Fetch this data from the database
-		Patient p = new Patient(firstName, lastName, birthdate);
-		p.fillWithFakeInfo();
-		return p;
+
+		// Faker faker = new Faker();
+		String legalName = firstName + " " + lastName;
+		Patient patient = Server.getServer().patientForLogin(legalName, birthdate);
+		return patient;
+		// String email = faker.bothify("?????????????##@gmail.com");
+		// com.github.javafaker.Address fakeAddress = faker.address();
+		// Address address = new Address(fakeAddress.streetAddress(), fakeAddress.city(), fakeAddress.state(), Integer.parseInt(fakeAddress.zipCode()));
+		// String dateOfBirth = birthdate;
+		// String insuranceProvider = faker.company().name() + " Insurance";
+		// int insuranceID = faker.number().numberBetween(0, 1000000000);
+		// return new Patient(legalName, email, address, dateOfBirth, insuranceProvider, insuranceID);
 	}
 }
