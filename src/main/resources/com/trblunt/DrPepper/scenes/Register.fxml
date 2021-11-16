@@ -17,15 +17,15 @@
                  <font>
                      <Font size="16.0" />
                  </font></Label>
-             <TextField layoutX="313.0" layoutY="43.0" />
-             <TextField layoutX="313.0" layoutY="77.0" />
-             <TextField layoutX="313.0" layoutY="110.0" />
-             <TextField layoutX="313.0" layoutY="142.0" />
-             <TextField layoutX="313.0" layoutY="211.0" />
-             <TextField layoutX="313.0" layoutY="246.0" />
-             <TextField layoutX="313.0" layoutY="347.0" />
-             <TextField layoutX="313.0" layoutY="176.0" />
-             <TextField layoutX="313.0" layoutY="278.0" />
+             <TextField fx:id="legalNameInput" layoutX="313.0" layoutY="43.0" />
+             <TextField fx:id="emailInput" layoutX="313.0" layoutY="77.0" />
+             <TextField fx:id="insuranceProviderInput" layoutX="313.0" layoutY="110.0" />
+             <TextField fx:id="insuranceIdInput" layoutX="313.0" layoutY="142.0" />
+             <TextField fx:id="streetAddressInput" layoutX="313.0" layoutY="211.0" />
+             <TextField fx:id="stateInput" layoutX="313.0" layoutY="246.0" />
+             <TextField fx:id="pharmacyInput" layoutX="313.0" layoutY="347.0" />
+             <TextField fx:id="cityInput" layoutX="313.0" layoutY="176.0" />
+             <TextField fx:id="postalCodeInput" layoutX="313.0" layoutY="278.0" />
              <Label layoutX="207.0" layoutY="46.0" text="Legal Name" />
              <Label layoutX="207.0" layoutY="80.0" text="Email Address" />
              <Label layoutX="206.0" layoutY="145.0" text="Insurance ID" />
@@ -36,7 +36,7 @@
              <Label layoutX="206.0" layoutY="248.0" text="State" />
              <Label layoutX="207.0" layoutY="281.0" text="Postal Code" />
              <Label layoutX="209.0" layoutY="314.0" text="D.O.B." />
-             <DatePicker layoutX="313.0" layoutY="311.0" prefHeight="25.0" prefWidth="150.0" />
+             <DatePicker fx:id="datePicker" layoutX="313.0" layoutY="311.0" prefHeight="25.0" prefWidth="150.0" />
              <CheckBox layoutX="64.0" layoutY="411.0" mnemonicParsing="false" text="Recieve information about future promotions from Dr. Pepper's Pediatric Clinic over email." />
              <Button layoutX="361.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleRegisterAction" text="Register" />
              <Button layoutX="25.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleBackAction" text="Back" />

@@ -28,7 +28,7 @@
                            <children>
                               <VBox layoutX="4.0" prefHeight="414.0" prefWidth="739.0">
                                  <children>
-                                    <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe:">
+                                    <Text fx:id="patientName" boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="">
                                        <VBox.margin>
                                           <Insets left="5.0" />
                                        </VBox.margin>
@@ -38,21 +38,25 @@
                                        <content>
                                           <GridPane prefHeight="334.0" prefWidth="712.0">
                                              <children>
-                                                <TextField promptText="Weight" GridPane.rowIndex="1" />
-                                                <TextField promptText="Height" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                <TextField promptText="Body Temp" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Insert Vitals" wrappingWidth="171.109375">
-                                                   <GridPane.margin>
-                                                      <Insets left="5.0" />
-                                                   </GridPane.margin>
-                                                </Text>
+                                                <HBox spacing="5" GridPane.rowIndex="1" alignment="center">
+                                                   <TextField fx:id="weightInput" promptText="Weight" text="" />
+                                                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="lbs." />
+                                                </HBox>
+                                                <HBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="center">
+                                                   <TextField fx:id="heightInput"  promptText="Height" text="" />
+                                                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="inches" />
+                                                </HBox>
+                                                <HBox spacing="5" GridPane.columnIndex="2" GridPane.rowIndex="1" alignment="center">
+                                                   <TextField fx:id="temperatureInput"  promptText="Temperature" text=""  />
+                                                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="° F" />
+                                                </HBox>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient is over 12" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" />
                                                    </GridPane.margin>
                                                 </Text>
-                                                <TextField layoutX="200.0" layoutY="69.0" promptText="Blood Presure" GridPane.rowIndex="3" />
-                                                <TextArea prefHeight="200.0" prefWidth="200.0" text="John Doe's known allergies are..." GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.rowSpan="2" />
+                                                <TextField fx:id="bloodPressureInput" promptText="Blood Pressure (ex: 100/80)" layoutX="200.0" layoutY="69.0" text="" GridPane.rowIndex="3" />
+                                                <TextArea fx:id="allergyInput" prefHeight="200.0" prefWidth="200.0" text="" GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.rowSpan="2" />
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Known Allergies" GridPane.rowIndex="4">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" />
@@ -63,7 +67,7 @@
                                                       <Insets left="5.0" />
                                                    </GridPane.margin>
                                                 </Text>
-                                                <TextArea prefHeight="200.0" prefWidth="200.0" text="The patient..." GridPane.columnSpan="2147483647" GridPane.rowIndex="8" GridPane.rowSpan="2" />
+                                                <TextArea fx:id="visitReasonInput" prefHeight="200.0" prefWidth="200.0" text="" GridPane.columnSpan="2147483647" GridPane.rowIndex="8" GridPane.rowSpan="2" />
                                              </children>
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -87,7 +91,7 @@
                                     </ScrollPane>
                                     <AnchorPane prefHeight="43.0" prefWidth="739.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#handleBackAction" text="Back" />
+                                          <!--<Button mnemonicParsing="false" onAction="#handleBackAction" text="Back" />-->
                                           <Button mnemonicParsing="false" onAction="#handleSubmitAction" text="Submit" translateX="660.0" />
                                        </children>
                                        <VBox.margin>
@@ -108,7 +112,7 @@
                                  <children>
                                     <VBox layoutX="3.0" prefHeight="414.0" prefWidth="740.0">
                                        <children>
-                                          <Text boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe:">
+                                          <Text fx:id="patientName2" boundsType="LOGICAL_VERTICAL_CENTER" strokeType="OUTSIDE" strokeWidth="0.0" text="">
                                              <VBox.margin>
                                                 <Insets left="5.0" />
                                              </VBox.margin>
@@ -124,7 +128,7 @@
                                                          </GridPane.margin>
                                                       </Text>
                                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient is over 12" GridPane.rowIndex="2" />
-                                                      <TextArea prefHeight="200.0" prefWidth="200.0" text="Patient has..." GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+                                                      <TextArea fx:id="previousHealthIssuesInput" prefHeight="200.0" prefWidth="200.0" text="" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="3" />
                                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Previous Prescriptions" GridPane.rowIndex="5">
                                                          <GridPane.margin>
                                                             <Insets left="5.0" />
@@ -135,12 +139,12 @@
                                                             <Insets left="5.0" />
                                                          </GridPane.margin>
                                                       </Text>
-                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- Acetaminophen" wrappingWidth="166.0" GridPane.rowIndex="6">
+                                                      <Text fx:id="previousPrescriptionsText" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="166.0" GridPane.rowIndex="6">
                                                          <GridPane.margin>
                                                             <Insets left="15.0" />
                                                          </GridPane.margin>
                                                       </Text>
-                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- Covid-19" GridPane.rowIndex="9">
+                                                      <Text fx:id="previousImmunizationsText" strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.rowIndex="9">
                                                          <GridPane.margin>
                                                             <Insets left="15.0" />
                                                          </GridPane.margin>
