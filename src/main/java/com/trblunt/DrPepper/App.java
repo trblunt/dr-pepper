@@ -23,8 +23,9 @@ public class App extends Application {
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
-        Parent content = loadScene(fxml);
+    static <T> T setRoot(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("scenes/" + fxml + ".fxml"));
+        Parent content = fxmlLoader.load();
         if (content instanceof Region) {
             double width = ((Region) content).getPrefWidth();
             double height = ((Region) content).getPrefWidth();
@@ -32,8 +33,8 @@ public class App extends Application {
             scene.getWindow().setHeight(height);
         }
         
-        scene.setRoot(loadScene(fxml));
-
+        scene.setRoot(content);
+        return fxmlLoader.getController();
     }
 
     private static Parent loadScene(String fxml) throws IOException {

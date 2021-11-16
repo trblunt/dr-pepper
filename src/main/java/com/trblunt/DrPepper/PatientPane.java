@@ -49,7 +49,7 @@ public class PatientPane extends TitledPane {
 
 	private String getPatientName() {
 		// TODO: Use actual patient data
-		return new Faker().name().fullName();
+		return patient.firstName + " " + patient.lastName;
 	}
 
 }

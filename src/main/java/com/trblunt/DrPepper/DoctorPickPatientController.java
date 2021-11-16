@@ -18,9 +18,9 @@ public class DoctorPickPatientController {
 	@FXML
 	public void initialize() {
 		ObservableList<TitledPane> panes = accordion.getPanes();
-		Patient testPatient = new Patient("");
-		for (int i=0; i<4; i++) {
-			PatientPane pane = new PatientPane(testPatient);
+		Patient[] patients = getPatients();
+		for (int i=0; i<patients.length; i++) {
+			PatientPane pane = new PatientPane(patients[i]);
 			pane.isActive.addListener((isActive, oldVal, newVal) -> {
 				if (!newVal) {
 					panes.remove(pane);
@@ -28,6 +28,19 @@ public class DoctorPickPatientController {
 			});
 			panes.add(pane);
 		}
+	}
+
+	@FXML protected void handleLogoutAction(ActionEvent event) throws IOException {
+		App.setRoot("FrontPage");
+	}
+	
+	private Patient[] getPatients() {
+		//TODO: Get from database
+		return new Patient[] {
+			new Patient("John", "Doe", "01/01/2000"),
+			new Patient("Jane", "Smith", "02/10/2014"),
+			new Patient("John", "Doe", "11/30/1987")
+		};
 	}
 
 	/* @FXML
