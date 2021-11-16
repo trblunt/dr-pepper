@@ -18,6 +18,7 @@ CREATE TABLE Patient (
     user_id BIGINT,
     insuranceProvider VARCHAR(50),
     insuranceID INT,
+    pharmacyAddress VARCHAR(50),
     -- key
     FOREIGN KEY (user_id) REFERENCES SUser(user_id),
     PRIMARY KEY (user_id)

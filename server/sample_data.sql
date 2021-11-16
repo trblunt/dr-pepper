@@ -11,8 +11,8 @@ INSERT INTO SUser VALUES
 SELECT setval('user_id_seq', 5, true);
 
 INSERT INTO Patient VALUES
-(1, 'Blue Cross', 4932),
-(2, 'ministry of health', 2139);
+(1, 'Blue Cross', 4932, 'Pharm Addr'),
+(2, 'ministry of health', 2139, 'Another Pharm Addr');
 
 
 INSERT INTO Staff VALUES
