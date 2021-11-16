@@ -26,23 +26,31 @@ public class Patient extends User {
 
     // use this if the Patient exists already and if signing in/or the Nurse if checking them in
 
-    // public Patient(String first_name, String last_name, String birthday) {
-    //     super(first_name + " " + last_name);
-    //     firstName = first_name; 
-    //     lastName = last_name; 
-    //     dateOfBirth = birthday;
-    //     // TODO: get all the information from the database and set each of the variables
-    //     email = "";
-    //     address = "";
-    //     insuranceProvider = "";
-    //     insuranceID = 0;
-    //     pharmacyAddress = "";
-    //     //History history = new History(); 
-    //     /* TODO For History, need to get and pass an array list of visits, array list of prescriptions, 
-    //         an array list of immunizations, and a string of previousHealthIssues from the databse*/
-    //     //record = new PatientRecord(patient history from database);
-    //     /* For record once History is populated this line can be uncommented*/
-    // }
+    //Reimplemented for testing until ability to pull patient from database from ID added
+    public Patient(String first_name, String last_name, String birthday) {
+        super(first_name + " " + last_name);
+        firstName = first_name;
+        lastName = last_name;
+        dateOfBirth = birthday;
+        // TODO: get all the information from the database and set each of the variables
+        email = "";
+        address = "";
+        insuranceProvider = "";
+        insuranceID = 0;
+        pharmacyAddress = "";
+        // History history = new History();
+        /*
+         * TODO For History, need to get and pass an array list of visits, array list of
+         * prescriptions, an array list of immunizations, and a string of
+         * previousHealthIssues from the databse
+         */
+        // record = new PatientRecord(patient history from database);
+        /* For record once History is populated this line can be uncommented */
+
+        // TODO Remove next line after implement database load
+        record = new PatientRecord(
+                new History(new ArrayList<Visit>(), new ArrayList<String>(), new ArrayList<String>(), ""));
+    }
 
     // TODO this will need to add the patient to the database
     public void registerPatient(String legalName, String email, String address, String dateOfBirth, String insuranceProvider, int insuranceID) {

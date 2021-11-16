@@ -37,7 +37,7 @@ public class RegisterController {
 
     @FXML protected void handleRegisterAction(ActionEvent event) throws IOException {
         Address address = new Address(streetAddressInput.getText(), cityInput.getText(), stateInput.getText(), Integer.parseInt(postalCodeInput.getText()));
-        Patient newPatient = new Patient(legalNameInput.getText(), emailInput.getText(), address, datePicker.getValue().format(DateTimeFormatter.ISO_LOCAL_DATE), insuranceProviderInput.getText(), Integer.parseInt(insuranceIdInput.getText()));
+        Patient newPatient = new Patient(legalNameInput.getText(), emailInput.getText(), address.toString(), datePicker.getValue().format(DateTimeFormatter.ISO_LOCAL_DATE), insuranceProviderInput.getText(), Integer.parseInt(insuranceIdInput.getText()));
         newPatient.pharmacyAddress = pharmacyInput.getText();
         AccountController controller = App.setRoot("Account");
         controller.setPatient(newPatient);
