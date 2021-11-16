@@ -38,14 +38,16 @@ public class PatientSignInController {
 
 	protected Patient getPatient(String firstName, String lastName, String birthdate) {
 		// TODO: Fetch this data from the database
-		Faker faker = new Faker();
+		// Faker faker = new Faker();
 		String legalName = firstName + " " + lastName;
-		String email = faker.bothify("?????????????##@gmail.com");
-		com.github.javafaker.Address fakeAddress = faker.address();
-		Address address = new Address(fakeAddress.streetAddress(), fakeAddress.city(), fakeAddress.state(), Integer.parseInt(fakeAddress.zipCode()));
-		String dateOfBirth = birthdate;
-		String insuranceProvider = faker.company().name() + " Insurance";
-		int insuranceID = faker.number().numberBetween(0, 1000000000);
-		return new Patient(legalName, email, address, dateOfBirth, insuranceProvider, insuranceID);
+		Patient patient = Server.getServer().patientForLogin(legalName, birthdate);
+		return patient;
+		// String email = faker.bothify("?????????????##@gmail.com");
+		// com.github.javafaker.Address fakeAddress = faker.address();
+		// Address address = new Address(fakeAddress.streetAddress(), fakeAddress.city(), fakeAddress.state(), Integer.parseInt(fakeAddress.zipCode()));
+		// String dateOfBirth = birthdate;
+		// String insuranceProvider = faker.company().name() + " Insurance";
+		// int insuranceID = faker.number().numberBetween(0, 1000000000);
+		// return new Patient(legalName, email, address, dateOfBirth, insuranceProvider, insuranceID);
 	}
 }

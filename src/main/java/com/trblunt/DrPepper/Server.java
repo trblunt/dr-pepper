@@ -32,7 +32,7 @@ public class Server {
         return server;
     }
 
-    boolean validPatientLogin(String name, String dob){
+    Patient patientForLogin(String name, String dob){
         try {
             // the cast is nessesary because the Java Date format was not working and Java is enforcing type casting
             String sql = "SELECT * FROM SUser U, Patient P WHERE U.user_id = P.user_id AND name = ? AND dob = CAST(? AS DATE);";
@@ -42,8 +42,12 @@ public class Server {
             System.out.println(sm.toString());
             ResultSet rs = sm.executeQuery();
             System.out.println(rs);
+    
+    
             if (rs.next() == true) {
-                return true;
+                Patient patient = new Patient(rs.getString("name"), rs.getString("email"), rs.getString("address"), dob, rs.getString("insuranceProvider"), rs.getInt("insuranceID"));
+                // patient.
+                return patient;
             }
             sm.close();
 
@@ -52,7 +56,7 @@ public class Server {
             System.out.println(e);
             // System.exit(0);
         }
-        return false;
+        return null;
     }
 
 }
