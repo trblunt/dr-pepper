@@ -57,7 +57,7 @@ public class AccountController implements Initializable {
     }
 
     private void updateLabels() {
-        nameLabel.setText(patient.firstName + " " + patient.lastName);
+        nameLabel.setText(patient.name);
         emailLabel.setText(patient.email);
         dobLabel.setText(patient.dateOfBirth);
         residenceLabel.setText(patient.address);
@@ -65,7 +65,7 @@ public class AccountController implements Initializable {
         insuranceIDLabel.setText(String.valueOf(patient.insuranceID));
         pharmacyLabel.setText(patient.pharmacyAddress);
 
-        name.setText(patient.firstName + " " + patient.lastName);
+        name.setText(patient.name);
         email.setText(patient.email);
         dob.setValue(LocalDate.parse(patient.dateOfBirth, DateTimeFormatter.ISO_LOCAL_DATE));
         residence.setText(patient.address);
@@ -86,6 +86,8 @@ public class AccountController implements Initializable {
                 name.getText(), email.getText(), dob.getValue().format(
                         DateTimeFormatter.ISO_LOCAL_DATE), 
                 residence.getText(), insurance.getText(), Integer.parseInt(insuranceID.getText()), pharmacy.getText());
+        Server.getServer().updatePatient(patient);
         updateLabels();
+        
     }
 }

@@ -28,12 +28,12 @@ public class PatientSignInController {
 	private DatePicker birthdateInput;
 	@FXML
 	private TextField firstNameInput;
-	@FXML
-	private TextField lastNameInput;
+	// @FXML
+	// private TextField lastNameInput;
 
 	@FXML
 	protected void handleSignInAction(ActionEvent event) throws IOException {
-		Patient patient = getPatient(firstNameInput.getText(), lastNameInput.getText(), birthdateInput.getValue().format(DateTimeFormatter.ISO_LOCAL_DATE));
+		Patient patient = getPatient(firstNameInput.getText(), birthdateInput.getValue().format(DateTimeFormatter.ISO_LOCAL_DATE));
 		AccountController controller = App.setRoot("Account");
 		controller.setPatient(patient);
 	}
@@ -42,12 +42,12 @@ public class PatientSignInController {
 		App.setRoot("FrontPage");
 	}
 
-	protected Patient getPatient(String firstName, String lastName, String birthdate) {
+	protected Patient getPatient(String name, String birthdate) {
 		// TODO: Fetch this data from the database
 
 		// Faker faker = new Faker();
-		String legalName = firstName + " " + lastName;
-		Patient patient = Server.getServer().patientForLogin(legalName, birthdate);
+		// String legalName = firstName + " " + lastName;
+		Patient patient = Server.getServer().patientForLogin(name, birthdate);
 		return patient;
 		// String email = faker.bothify("?????????????##@gmail.com");
 		// com.github.javafaker.Address fakeAddress = faker.address();
