@@ -26,8 +26,8 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-       <TextField promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-       <TextField promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+       <TextField fx:id="passwordInput" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+       <TextField fx:id="usernameInput" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="3" />
        <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleSignInAction" text="Sign in" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
        <Text opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="Dr. Pepper's Pediatric Clinic" textAlignment="CENTER" wrappingWidth="246.3955078125" />
        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!" textAlignment="CENTER" wrappingWidth="200.1484375" GridPane.columnIndex="1" GridPane.rowIndex="1">

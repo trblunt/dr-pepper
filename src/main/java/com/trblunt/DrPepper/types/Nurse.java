@@ -19,7 +19,7 @@ public class Nurse extends Staff {
     }
 
     // when you click submit update the vitals for the current visit and add the patient to the doctors list of patients
-    public void enterVitals(Patient patient, int height, int weight, int temp, String bloodPressure, String allergies,  String reasonForVisit) {
+    public void enterVitals(Patient patient, int height, double weight, double temp, String bloodPressure, String allergies,  String reasonForVisit) {
         patient.record.currentVisit.nurseSubmitVitals(height, weight, temp, bloodPressure, allergies, reasonForVisit);
         passPatientToDoctor(patient);
     }

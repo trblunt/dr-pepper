@@ -2,25 +2,33 @@
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import com.trblunt.DrPepper.types.Patient;
+import com.trblunt.DrPepper.types.Visit;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 public class AccountController implements Initializable {
 
     @FXML private TextField name;
     @FXML private TextField email;
-    @FXML private TextField dob;
+    @FXML private DatePicker dob;
     @FXML private TextField residence;
     @FXML private TextField insurance;
     @FXML private TextField insuranceID;
     @FXML private TextField pharmacy;
+
+    @FXML private Text pastVisitsText;
 
     @FXML private Label nameLabel;
     @FXML private Label emailLabel;
@@ -40,11 +48,15 @@ public class AccountController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        update.setOnAction(this::getValues);
+        update.setOnAction(this::updatePatient);
     }
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+        updateLabels();
+    }
+
+    private void updateLabels() {
         nameLabel.setText(patient.firstName + " " + patient.lastName);
         emailLabel.setText(patient.email);
         dobLabel.setText(patient.dateOfBirth);
@@ -53,16 +65,27 @@ public class AccountController implements Initializable {
         insuranceIDLabel.setText(String.valueOf(patient.insuranceID));
         pharmacyLabel.setText(patient.pharmacyAddress);
 
+        name.setText(patient.firstName + " " + patient.lastName);
+        email.setText(patient.email);
+        dob.setValue(LocalDate.parse(patient.dateOfBirth, DateTimeFormatter.ISO_LOCAL_DATE));
+        residence.setText(patient.address);
+        insurance.setText(patient.insuranceProvider);
+        insuranceID.setText(String.valueOf(patient.insuranceID));
+        pharmacy.setText(patient.pharmacyAddress);
+
+        String pastVisits = "Past Visits: \n";
+        for (Visit v : patient.record.patientHistory.pastVisits) {
+            pastVisits += v.asBlurb();
+        }
+        pastVisitsText.setText(pastVisits);
     }
 
     @FXML
-    public void getValues(ActionEvent event) {
-        if (name.getText().isEmpty() == false) { nameLabel.setText(name.getText()); }
-        if (email.getText().isEmpty() == false) { emailLabel.setText(email.getText()); }
-        if (dob.getText().isEmpty() == false) { dobLabel.setText(dob.getText()); }
-        if (residence.getText().isEmpty() == false) { residenceLabel.setText(residence.getText()); }
-        if (insurance.getText().isEmpty() == false) { insuranceLabel.setText(insurance.getText()); }
-        if (insuranceID.getText().isEmpty() == false) { insuranceIDLabel.setText(insuranceID.getText()); }
-        if (pharmacy.getText().isEmpty() == false) { pharmacyLabel.setText(pharmacy.getText()); }
+    public void updatePatient(ActionEvent event) {
+        patient.modifyAccountInfo(
+                name.getText(), email.getText(), dob.getValue().format(
+                        DateTimeFormatter.ISO_LOCAL_DATE), 
+                residence.getText(), insurance.getText(), Integer.parseInt(insuranceID.getText()), pharmacy.getText());
+        updateLabels();
     }
 }

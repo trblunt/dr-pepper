@@ -4,24 +4,35 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.github.javafaker.Faker;
+import com.trblunt.DrPepper.types.Doctor;
+import com.trblunt.DrPepper.types.Nurse;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 
 public class StaffSignInController implements Initializable{
 
 	@FXML public ChoiceBox<String> staffType;
+	@FXML private TextField passwordInput;
+	@FXML private TextField usernameInput;
 	public String[] staff= {"Doctor", "Nurse"};
 
 	@FXML
 	protected void handleSignInAction(ActionEvent event) throws IOException {
-		if (staffType.getValue() == "Doctor") {
-			App.setRoot("DoctorPickPatient");
-		} else if (staffType.getValue() == "Nurse") {
-			App.setRoot("NursePickPatient");
-		} else {
+		if (isValidLogin(usernameInput.getText(), passwordInput.getText(), staffType.getValue() == "Doctor")) {
+			if (staffType.getValue() == "Doctor") {
+				DoctorPickPatientController controller = App.setRoot("DoctorPickPatient");
+				controller.setDoctor(getDoctor(usernameInput.getText()));
+			} else if (staffType.getValue() == "Nurse") {
+				NursePickPatientController controller = App.setRoot("NursePickPatient");
+				controller.setNurse(getNurse(usernameInput.getText()));
+			} else {
 
+			}
 		}
 	}
 
@@ -37,6 +48,21 @@ public class StaffSignInController implements Initializable{
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		staffType.getItems().addAll(staff);
+	}
+
+	public boolean isValidLogin(String username, String password, boolean isDoctor) {
+		//TODO: Implement auth w/ database (maybe)
+		return true;
+	}
+
+	public Doctor getDoctor(String username) {
+		//TODO: Return doctor from database
+		return new Doctor(new Faker().name().fullName());
+	}
+
+	public Nurse getNurse(String username) {
+		// TODO: Return doctor from database
+		return new Nurse(new Faker().name().fullName());
 	}
 
 }
