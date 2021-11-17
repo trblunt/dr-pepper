@@ -12,6 +12,8 @@ public class Visit {
     public String notes;
     public String reasonForVisit;
     public Vitals vitals;
+    public Patient patient;
+    public int visitID;
 
     public Visit() {
         LocalDate now = LocalDate.now();

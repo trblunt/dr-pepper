@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.trblunt.DrPepper.types.Doctor;
 import com.trblunt.DrPepper.types.Patient;
+import com.trblunt.DrPepper.types.Visit;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
@@ -21,7 +22,10 @@ public class PatientPane extends TitledPane {
 
 	private Doctor doctor;
 
-	public PatientPane(Patient patient, Doctor doctor) {
+	private Visit visit;
+
+	public PatientPane(Visit v, Doctor doctor) {
+		this.visit = v;
         FXMLLoader fxmlLoader = App.loadComponent("PatientPane");
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -32,7 +36,7 @@ public class PatientPane extends TitledPane {
             throw new RuntimeException(exception);
         }
 
-		this.patient = patient;
+		this.patient = v.patient;
 		this.doctor = doctor;
 
 		this.textProperty().set(this.getPatientName());
@@ -44,8 +48,10 @@ public class PatientPane extends TitledPane {
 	@FXML
 	protected void handleSelectPatientAction(ActionEvent event) throws IOException {
 		DoctorAddPatientInfoController controller = App.setRoot("DoctorAddPatientInfo");
+		patient.record.currentVisit = visit;
 		controller.setPatient(patient);
 		controller.setDoctor(doctor);
+		controller.setVisit(visit);
 	}
 
 	@FXML
@@ -55,7 +61,7 @@ public class PatientPane extends TitledPane {
 
 	private String getPatientName() {
 		// TODO: Use actual patient data
-		return patient.firstName + " " + patient.lastName;
+		return patient.name;
 	}
 
 }

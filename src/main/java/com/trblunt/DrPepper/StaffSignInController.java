@@ -26,7 +26,9 @@ public class StaffSignInController implements Initializable{
 		if (isValidLogin(usernameInput.getText(), passwordInput.getText(), staffType.getValue() == "Doctor")) {
 			if (staffType.getValue() == "Doctor") {
 				DoctorPickPatientController controller = App.setRoot("DoctorPickPatient");
+				System.out.println("SSIC Set Doctor");
 				controller.setDoctor(getDoctor(usernameInput.getText(), passwordInput.getText()));
+				controller.loadPatients();
 			} else if (staffType.getValue() == "Nurse") {
 				NursePickPatientController controller = App.setRoot("NursePickPatient");
 				controller.setNurse(getNurse(usernameInput.getText(), passwordInput.getText()));

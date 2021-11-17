@@ -326,4 +326,71 @@ public class Server {
         }
     }
 
+    ArrayList<Visit> getActiveVisitsForDoctor(Doctor doctor){
+        System.out.println("Getting all Active Patients");
+        System.out.println(doctor.userID);
+        try {
+            
+        
+            String pSQL = "SELECT * FROM SUser U, Patient P, Visit V WHERE U.user_id = P.user_id AND U.user_id = V.patient_id AND V.complete = 'FALSE' AND V.doctor_id = ?";
+            PreparedStatement getP = c.prepareStatement(pSQL);
+            getP.setInt(1, doctor.userID);
+            System.out.println(getP.toString());
+            ResultSet pRS = getP.executeQuery();
+
+            ArrayList<Visit> ps = new ArrayList<Visit>();
+            while (pRS.next()) {
+                Visit cuVisit = new Visit();
+                cuVisit.date = pRS.getString("date");
+                cuVisit.visitID = pRS.getInt("visit_id");
+                Vitals v = new Vitals(pRS.getInt("height"), pRS.getDouble("weight"), pRS.getDouble("temp"), pRS.getString("bpsystolic") + "/" + pRS.getString("bpdiastolic"), pRS.getString("height"));
+                cuVisit.vitals = v;
+                cuVisit.testName = pRS.getString("testname");
+                cuVisit.testResult = pRS.getString("testresult");
+                Patient newPatient = patientForLogin(pRS.getString("name"), pRS.getString("dob"));
+                cuVisit.patient = newPatient;
+                ps.add(cuVisit);
+                System.out.println(newPatient.name);
+            }
+            getP.close();
+
+            System.out.println("RETURN PS");
+            System.out.println(ps.toString());
+            return ps;
+            // Doctor[] docA = (Doctor[]) docs.toArray();
+            // return docA;
+            
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e);
+            // System.exit(0);
+        }
+        System.out.println("Done getting all active patients");
+        return null;
+    }
+
+    void saveDocVisit(Patient currPatient, Visit currVisit, Doctor currDoctor){
+        try {
+            String updateVisitSQL = "UPDATE Visit SET  height = ?, weight = ?, temp = ?, bpsystolic = ?, bpdiastolic = ?, testname = ?, testresult = ?, complete = 'True' WHERE visit_id = ?";
+            PreparedStatement updateVisit = c.prepareStatement(updateVisitSQL);
+            
+            updateVisit.setInt(1, currVisit.vitals.height);
+            updateVisit.setDouble(2, currVisit.vitals.weight);
+            updateVisit.setDouble(3, currVisit.vitals.temp);
+            updateVisit.setInt(4, currVisit.bpsystolic);
+            updateVisit.setInt(5, currVisit.bpdiastolic);
+            updateVisit.setString(6, currVisit.testName);
+            updateVisit.setString(7, currVisit.testResult);
+            updateVisit.setInt(8, currVisit.visitID);
+            System.out.println(updateVisit.toString());
+            ResultSet rs = updateVisit.executeQuery();
+            updateVisit.close();
+
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e);
+            // System.exit(0);
+        }
+    }
+
 }
