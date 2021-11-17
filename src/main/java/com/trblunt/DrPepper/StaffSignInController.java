@@ -29,7 +29,7 @@ public class StaffSignInController implements Initializable{
 				controller.setDoctor(getDoctor(usernameInput.getText(), passwordInput.getText()));
 			} else if (staffType.getValue() == "Nurse") {
 				NursePickPatientController controller = App.setRoot("NursePickPatient");
-				controller.setNurse(getNurse(usernameInput.getText()));
+				controller.setNurse(getNurse(usernameInput.getText(), passwordInput.getText()));
 			} else {
 
 			}
@@ -61,9 +61,9 @@ public class StaffSignInController implements Initializable{
 		return Server.getServer().doctororLogin(username, password);
 	}
 
-	public Nurse getNurse(String username) {
+	public Nurse getNurse(String username, String password) {
 		// TODO: Return doctor from database
-		return new Nurse(new Faker().name().fullName());
+		return Server.getServer().nurseLogin(username, password);
 	}
 
 }

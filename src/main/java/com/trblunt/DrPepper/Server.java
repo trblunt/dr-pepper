@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.trblunt.DrPepper.types.Doctor;
 import com.trblunt.DrPepper.types.History;
+import com.trblunt.DrPepper.types.Nurse;
 import com.trblunt.DrPepper.types.Patient;
 import com.trblunt.DrPepper.types.PatientRecord;
 import com.trblunt.DrPepper.types.Visit;
@@ -203,6 +204,55 @@ public class Server {
      
 
             return doc;
+
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e);
+            // System.exit(0);
+        }
+        return null;
+    }
+
+
+    Nurse nurseLogin(String name, String password){
+        try {
+            // the cast is nessesary because the Java Date format was not working and Java is enforcing type casting
+            String sql = "SELECT * FROM SUser U, Staff S WHERE U.user_id = S.user_id AND username = ? AND password = ?";
+            PreparedStatement sm = c.prepareStatement(sql); // YYYY-MM-DD
+            sm.setString(1, name);
+            sm.setString(2, password);
+            System.out.println(sm.toString());
+            ResultSet rs = sm.executeQuery();
+            System.out.println(rs);
+            rs.next();
+            System.out.println(rs.getString("name"));
+            Nurse nurse = new Nurse(rs.getString("name"));
+            nurse.userID = rs.getInt("user_id");
+            nurse.email = rs.getString("email");
+            nurse.address = rs.getString("address");
+            nurse.dateOfBirth = rs.getString("dob");
+            // Doctor doc = new Patient(rs.getString("name"), rs.getString("email"), rs.getString("address"), dob, rs.getString("insuranceProvider"), rs.getInt("insuranceID"), rs.getString("pharmacyAddress"));
+            nurse.userID = rs.getInt("user_id");
+            // get visits
+            // String patSQL = "SELECT * FROM V WHERE doctor_id = ?";
+            // PreparedStatement getPatients = c.prepareStatement(patSQL);
+            // getPatients.setInt(1, doc.userID);
+            // ResultSet pat = getPatients.executeQuery();
+
+            // ArrayList<Patient> patients = new ArrayList<Patient>();
+            // while (pat.next()){
+            //     Visit visit = new Visit();
+            //     visit.date = visits.getString("date");
+    
+            //     Vitals vitals = new Vitals(visits.getInt("height"), visits.getInt("weight"), visits.getFloat("temp"), "blood presure", "allergies");
+            //     visit.vitals =  vitals;
+            //     pastVisits.add(visit);
+            // }
+        
+            
+     
+
+            return nurse;
 
         } catch (Exception e) {
             //TODO: handle exception
