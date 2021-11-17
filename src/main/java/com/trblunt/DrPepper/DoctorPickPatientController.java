@@ -49,9 +49,10 @@ public class DoctorPickPatientController {
 			new Patient("Jane", "Smith", "02/10/2014"),
 			new Patient("Frank", "Zachary", "11/30/1987")
 		};*/
-		Patient testPatient = new Patient("John", "Doe", "2000-01-01");
-		testPatient.fillWithFakeInfo();
-		return new Patient[] {testPatient};
+		// Patient testPatient = new Patient("John", "Doe", "2000-01-01");
+		// testPatient.fillWithFakeInfo();
+		// return new Patient[] {testPatient};
+		return new Patient[] {};
 	}
 
 	public void setDoctor(Doctor doctor) {
