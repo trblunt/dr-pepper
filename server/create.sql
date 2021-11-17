@@ -18,6 +18,7 @@ CREATE TABLE Patient (
     user_id BIGINT,
     insuranceProvider VARCHAR(50),
     insuranceID INT,
+    pharmacyAddress VARCHAR(50),
     -- key
     FOREIGN KEY (user_id) REFERENCES SUser(user_id),
     PRIMARY KEY (user_id)
@@ -58,8 +59,11 @@ CREATE TABLE Visit (
     bpDiastolic INT,
     testName VARCHAR(50),
     testResult VARCHAR(50),
+    complete BOOLEAN,
+    doctor_id BIGINT,
     -- key
     FOREIGN KEY (patient_id) REFERENCES Patient(user_id),
+    FOREIGN KEY (doctor_id) REFERENCES Staff(user_id),
     PRIMARY KEY (visit_id)
 );
 

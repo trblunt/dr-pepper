@@ -41,6 +41,7 @@ public class RegisterController {
         newPatient.pharmacyAddress = pharmacyInput.getText();
         AccountController controller = App.setRoot("Account");
         controller.setPatient(newPatient);
+        Server.getServer().registerPatient(newPatient);
     }
 
     @FXML protected void handleBackAction(ActionEvent event) throws IOException {

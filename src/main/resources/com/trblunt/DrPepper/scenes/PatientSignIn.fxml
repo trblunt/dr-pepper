@@ -36,7 +36,7 @@
            <font>
                <Font size="16.0" />
            </font></Text>
-       <TextField fx:id="lastNameInput" layoutX="210.0" layoutY="248.0" promptText="Last Name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+       
        <Button alignment="CENTER" layoutX="284.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleBackAction" text="Back" GridPane.rowIndex="8">
            <GridPane.margin>
                <Insets left="10.0" />

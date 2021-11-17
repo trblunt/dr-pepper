@@ -10,27 +10,37 @@ import com.github.javafaker.Faker;
 public class Patient extends User {
 
     public PatientRecord record;
-    public String firstName;
-    public String lastName;
     public String insuranceProvider;
     public int insuranceID;
     public String pharmacyAddress;
     public Doctor assignedDoctor;
 
     // use this if the patient is new
-    public Patient(String legalName, String email, String address, String dateOfBirth, String insuranceProvider, int insuranceID) {
+    public Patient(String name, String email, String address, String dateOfBirth, String insuranceProvider, int insuranceID) {
+        super(name);
+        registerPatient(name, email, address, dateOfBirth, insuranceProvider, insuranceID);
+        // TODO can either add patient to the database here or in registerPatient()
+    }
+    // constructor for pulling patient from db
+    public Patient(String legalName, String email, String address, String dateOfBirth, String insuranceProvider, int insuranceID, String pharmacyAddress) {
         super(legalName);
-        registerPatient(legalName, email, address, dateOfBirth, insuranceProvider, insuranceID);
+        // this.name = legalName;
+        this.email = email;
+        this.address = address;
+        this.dateOfBirth = dateOfBirth;
+        this.insuranceProvider = insuranceProvider;
+        this.insuranceID = insuranceID;
+        this.pharmacyAddress = pharmacyAddress;
+        
         // TODO can either add patient to the database here or in registerPatient()
     }
 
     // use this if the Patient exists already and if signing in/or the Nurse if checking them in
 
     //Reimplemented for testing until ability to pull patient from database from ID added
-    public Patient(String first_name, String last_name, String birthday) {
-        super(first_name + " " + last_name);
-        firstName = first_name;
-        lastName = last_name;
+    public Patient(String name, String birthday) {
+        super(name);
+        this.name = name;
         dateOfBirth = birthday;
         // TODO: get all the information from the database and set each of the variables
         email = "";
@@ -53,10 +63,8 @@ public class Patient extends User {
     }
 
     // TODO this will need to add the patient to the database
-    public void registerPatient(String legalName, String email, String address, String dateOfBirth, String insuranceProvider, int insuranceID) {
-        this.name = legalName;
-        firstName = name.substring(0, name.indexOf(" "));
-        lastName = name.substring(name.indexOf(" ")+1);
+    public void registerPatient(String name, String email, String address, String dateOfBirth, String insuranceProvider, int insuranceID) {
+        this.name = name;
         this.email = email;
         this.address = address.toString();
         this.dateOfBirth = dateOfBirth;
@@ -71,8 +79,6 @@ public class Patient extends User {
     public void modifyAccountInfo(String name, String email, String dateOfBirth, String address, String insuranceProvider, int insuranceID, String pharmacyAddress) {
         if (!name.isEmpty()) {
             this.name = name;
-            firstName = name.substring(0, name.indexOf(" "));
-            lastName = name.substring(name.indexOf(" ")+1);
             // update in database
         }
         if (!email.isEmpty()) {

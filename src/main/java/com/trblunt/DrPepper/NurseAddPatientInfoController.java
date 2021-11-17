@@ -5,8 +5,10 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.trblunt.DrPepper.types.Doctor;
 import com.trblunt.DrPepper.types.Nurse;
 import com.trblunt.DrPepper.types.Patient;
+import com.trblunt.DrPepper.types.Visit;
 import com.trblunt.DrPepper.types.Vitals;
 
 import javafx.event.ActionEvent;
@@ -19,6 +21,7 @@ public class NurseAddPatientInfoController {
 
     private Patient patient;
     private Nurse nurse;
+    private Doctor doctor;
 
     @FXML
     private TextField weightInput;
@@ -50,8 +53,9 @@ public class NurseAddPatientInfoController {
 
     @FXML
     void handleSubmitAction(ActionEvent event) throws IOException {
-        updatePatient();
-        nurse.passPatientToDoctor(patient);
+        // updatePatient();
+        // nurse.passPatientToDoctor(patient);
+        addVisit();
         NursePickPatientController controller = App.setRoot("NursePickPatient");
         controller.setNurse(nurse);
     }
@@ -68,7 +72,12 @@ public class NurseAddPatientInfoController {
         this.patientName.setText(patient.name + ": ");
         this.patientName2.setText(patient.name + ": ");
         this.visitReasonInput.setText(patient.record.currentVisit.getReasonForVisit());
-        this.previousHealthIssuesInput.setText(patient.record.patientHistory.previousHealthIssues);
+        String pastVisitInfo = "";
+        for (Visit visit: patient.record.patientHistory.pastVisits){
+            pastVisitInfo = pastVisitInfo + visit.reasonForVisit + "\n";
+        }
+        System.out.println(pastVisitInfo);
+        this.previousHealthIssuesInput.setText(pastVisitInfo);
         this.previousPrescriptionsText.setText(String.join("\n", patient.record.patientHistory.perscriptions));
         this.previousImmunizationsText.setText(String.join("\n", patient.record.patientHistory.immunizations));
     }
@@ -77,22 +86,22 @@ public class NurseAddPatientInfoController {
         this.nurse = nurse;
     }
 
-    private void updatePatient() {
-        
-        double weight = Double.parseDouble(this.weightInput.getText());
-        int height = Integer.parseInt(this.heightInput.getText());
-        double temp = Double.parseDouble(this.temperatureInput.getText());
-        String bloodPressure = this.bloodPressureInput.getText();
-        String allergies = this.allergyInput.getText();
-        String reasonForVisit = this.visitReasonInput.getText();
+    public void setDoctor(Doctor doctor){
+        this.doctor = doctor;
+    }
 
-        nurse.enterVitals(patient, height, weight, temp, bloodPressure, allergies, reasonForVisit);
+    private void addVisit() {
+        Visit currVisit = new Visit();
+        Vitals currVitals = new Vitals(Integer.parseInt(this.heightInput.getText()), Double.parseDouble(this.weightInput.getText()), Double.parseDouble(this.temperatureInput.getText()), this.bloodPressureInput.getText(), this.allergyInput.getText());
+        currVisit.vitals = currVitals;
+        Server.getServer().addNurseVisit(this.patient, currVisit, this.doctor);
+        // nurse.enterVitals(patient, height, weight, temp, bloodPressure, allergies, reasonForVisit);
 
-        patient.record.patientHistory.previousHealthIssues = this.previousHealthIssuesInput.getText();
-        patient.record.patientHistory.perscriptions = new ArrayList<>(
-                Arrays.asList(this.previousPrescriptionsText.getText().split("\n")));
-        patient.record.patientHistory.immunizations = new ArrayList<>(
-                Arrays.asList(this.previousImmunizationsText.getText().split("\n")));
+        // patient.record.patientHistory.previousHealthIssues = this.previousHealthIssuesInput.getText();
+        // patient.record.patientHistory.perscriptions = new ArrayList<>(
+        //         Arrays.asList(this.previousPrescriptionsText.getText().split("\n")));
+        // patient.record.patientHistory.immunizations = new ArrayList<>(
+        //         Arrays.asList(this.previousImmunizationsText.getText().split("\n")));
         // TODO: Update database w/ new patient info
     }
 

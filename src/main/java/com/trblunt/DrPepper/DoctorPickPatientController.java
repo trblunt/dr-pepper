@@ -18,17 +18,39 @@ import javafx.scene.control.TitledPane;
 
 public class DoctorPickPatientController {
 
-	@FXML
-	private Accordion accordion;
-
 	private Doctor doctor;
 
 	@FXML
-	public void initialize() {
+	private Accordion accordion;
+
+	
+
+	// @FXML
+	// public void initialize() {
+	// 	System.out.println("DPPC INIT");
+	// 	System.out.println(doctor.userID);
+	// 	System.out.println("----");
+	// 	ObservableList<TitledPane> panes = accordion.getPanes();
+	// 	ArrayList<Patient> patients = getPatients();
+	// 	for (Patient p: patients) {
+	// 		PatientPane pane = new PatientPane(p, doctor);
+	// 		pane.isActive.addListener((isActive, oldVal, newVal) -> {
+	// 			if (!newVal) {
+	// 				panes.remove(pane);
+	// 			}
+	// 		});
+	// 		panes.add(pane);
+	// 	}
+	// }
+	
+	public void loadPatients() {
+		System.out.println("DPPC INIT");
+		System.out.println(doctor.userID);
+		System.out.println("----");
 		ObservableList<TitledPane> panes = accordion.getPanes();
-		Patient[] patients = getPatients();
-		for (int i=0; i<patients.length; i++) {
-			PatientPane pane = new PatientPane(patients[i], doctor);
+		ArrayList<Visit> visits = getVisits();
+		for (Visit v: visits) {
+			PatientPane pane = new PatientPane(v, doctor);
 			pane.isActive.addListener((isActive, oldVal, newVal) -> {
 				if (!newVal) {
 					panes.remove(pane);
@@ -42,16 +64,16 @@ public class DoctorPickPatientController {
 		App.setRoot("FrontPage");
 	}
 
-	private Patient[] getPatients() {
+	private ArrayList<Visit> getVisits() {
+		return Server.getServer().getActiveVisitsForDoctor(doctor);
 		//TODO: Get from database
-		/*return new Patient[] {
-			new Patient("John", "Doe", "01/01/2000"),
-			new Patient("Jane", "Smith", "02/10/2014"),
-			new Patient("Frank", "Zachary", "11/30/1987")
-		};*/
-		Patient testPatient = new Patient("John", "Doe", "2000-01-01");
-		testPatient.fillWithFakeInfo();
-		return new Patient[] {testPatient};
+		// return new Patient[] {
+		// 	Server.getServer().patientForLogin("Henry OM", "2000-10-26")
+		// };
+		// Patient testPatient = new Patient("John", "Doe", "2000-01-01");
+		// testPatient.fillWithFakeInfo();
+		// return new Patient[] {testPatient};
+		// return new Patient[] {};
 	}
 
 	public void setDoctor(Doctor doctor) {

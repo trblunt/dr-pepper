@@ -2,6 +2,7 @@ package com.trblunt.DrPepper;
 
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 import com.github.javafaker.Faker;
 import com.trblunt.DrPepper.types.Doctor;
@@ -33,7 +34,7 @@ public class NursePickPatientController {
 
     @FXML
 	public void initialize() {
-        Doctor[] doctors = getDoctors();
+        ArrayList<Doctor> doctors = Server.getServer().getAllDoctorsNameAndIDOnly();
         doctorDropdown.getItems().addAll(doctors);
     }
 
@@ -42,12 +43,13 @@ public class NursePickPatientController {
         if (doctorDropdown.getValue() != null) {
             Doctor assignedDoc = doctorDropdown.getValue();
             NurseAddPatientInfoController controller = App.setRoot("NurseAddPatientInfo");
-            Patient patient = new Patient(firstNameInput.getText(), lastNameInput.getText(), birthdateInput.getValue().format(DateTimeFormatter.ISO_LOCAL_DATE));
+            Patient patient = Server.getServer().patientForLogin(firstNameInput.getText() + " " + lastNameInput.getText(), birthdateInput.getValue().format(DateTimeFormatter.ISO_LOCAL_DATE));
             //TODO: Remove after database implementation
-            patient.fillWithFakeInfo();
+            // patient.fillWithFakeInfo();
             nurse.startPatientVisit(patient, assignedDoc);
             controller.setPatient(patient);
             controller.setNurse(nurse);
+            controller.setDoctor(assignedDoc);
         }
     }
 
@@ -56,11 +58,11 @@ public class NursePickPatientController {
         App.setRoot("FrontPage");
     }
 
-    private Doctor[] getDoctors() {
-        //TODO: Fetch doctors from the database
-        return new Doctor[] { new Doctor(new Faker().name().fullName()), new Doctor(new Faker().name().fullName()), 
-                new Doctor(new Faker().name().fullName()), new Doctor(new Faker().name().fullName()), };
-    }
+    // private Doctor[] getDoctors() {
+    //     //TODO: Fetch doctors from the database
+    //     return new Doctor[] { new Doctor(new Faker().name().fullName()), new Doctor(new Faker().name().fullName()), 
+    //             new Doctor(new Faker().name().fullName()), new Doctor(new Faker().name().fullName()), };
+    // }
 
     public void setNurse(Nurse nurse) {
         this.nurse = nurse;

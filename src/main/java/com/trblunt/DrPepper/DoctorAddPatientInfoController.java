@@ -70,6 +70,7 @@ public class DoctorAddPatientInfoController {
 
     private Patient patient;
     private Doctor doctor;
+    private Visit visit;
 
     @FXML
     protected void handleBackAction(ActionEvent event) throws IOException {
@@ -138,6 +139,11 @@ public class DoctorAddPatientInfoController {
         patient.record.patientHistory.immunizations = new ArrayList<>(
                 Arrays.asList(this.previousImmunizationsText.getText().split("\n")));
         //TODO: Update database w/ new patient info
+        Server.getServer().saveDocVisit(patient, patient.record.currentVisit, doctor);
+    }
+
+    public void setVisit(Visit visit2) {
+        this.visit = visit2;
     }
 
 }

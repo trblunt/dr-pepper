@@ -11,8 +11,8 @@ INSERT INTO SUser VALUES
 SELECT setval('user_id_seq', 5, true);
 
 INSERT INTO Patient VALUES
-(1, 'Blue Cross', 4932),
-(2, 'ministry of health', 2139);
+(1, 'Blue Cross', 4932, 'Pharm Addr'),
+(2, 'ministry of health', 2139, 'Another Pharm Addr');
 
 
 INSERT INTO Staff VALUES
@@ -28,9 +28,9 @@ INSERT INTO Pharmacy VALUES
 
 
 INSERT INTO Visit VALUES  
-(1, 1, '5/23/2016', 68, 155, 98.3, 100, 80, 'is cool', 'yeah'),
-(2, 1, '9/3/2018', 69, 170, 97.9, 132, 90, 'is still cool', 'yep'),
-(3, 2, '1/1/1984', 52, 120, 100.3, 140, 120, 'is loyal', 'no');
+(1, 1, '5/23/2016', 68, 155, 98.3, 100, 80, 'is cool', 'yeah', 'FALSE', 4),
+(2, 1, '9/3/2018', 69, 170, 97.9, 132, 90, 'is still cool', 'yep', 'FALSE', 4),
+(3, 2, '1/1/1984', 52, 120, 100.3, 140, 120, 'is loyal', 'no', 'FALSE', 4);
 SELECT setval('visit_id_seq', 3, true);
 
 

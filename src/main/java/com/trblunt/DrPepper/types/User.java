@@ -7,7 +7,6 @@ public class User {
     public String address;
     public String dateOfBirth;
 
-
     public User(String name) {
         this.name = name;
     }
