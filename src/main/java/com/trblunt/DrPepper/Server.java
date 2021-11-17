@@ -128,4 +128,39 @@ public class Server {
         }
     }
 
+    void registerPatient(Patient newPatient){
+        try {
+            String newUserSQL = "INSERT INTO SUser (name, email, address, dob) Values (?, ?, ?, CAST(? AS DATE)) RETURNING user_id;";
+            PreparedStatement newUser = c.prepareStatement(newUserSQL);
+            newUser.setString(1, newPatient.name);
+            newUser.setString(2, newPatient.email);
+            newUser.setString(3, newPatient.address);
+            newUser.setString(4, newPatient.dateOfBirth);
+            System.out.println(newUser.toString());
+            ResultSet rs = newUser.executeQuery();
+            rs.next();
+            int newID = rs.getInt("user_id");
+            newUser.close();
+
+            String newPatientSQL = "INSERT INTO Patient VALUES (?, ?, ?, ?);";
+            PreparedStatement newPatientSM = c.prepareStatement(newPatientSQL);
+            newPatientSM.setInt(1, newID);
+            newPatientSM.setString(2, newPatient.insuranceProvider);
+            newPatientSM.setInt(3, newPatient.insuranceID);
+            newPatientSM.setString(4, newPatient.pharmacyAddress);
+            System.out.println(newPatientSM.toString());
+            ResultSet s = newPatientSM.executeQuery();
+            newPatientSM.close();
+
+
+            
+
+
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e);
+            // System.exit(0);
+        }
+    }
+
 }
