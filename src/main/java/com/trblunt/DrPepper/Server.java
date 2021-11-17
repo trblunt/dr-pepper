@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import com.trblunt.DrPepper.types.Doctor;
@@ -67,6 +68,7 @@ public class Server {
        
                     Vitals vitals = new Vitals(visits.getInt("height"), visits.getInt("weight"), visits.getFloat("temp"), "blood presure", "allergies");
                     visit.vitals =  vitals;
+                    visit.reasonForVisit = "Test: " + visits.getString("testname") + " Result: " + visits.getString("testresult");
                     pastVisits.add(visit);
                 }
                 ArrayList<String> persc = new ArrayList<String>();
@@ -260,6 +262,68 @@ public class Server {
             // System.exit(0);
         }
         return null;
+    }
+
+    ArrayList<Doctor> getAllDoctorsNameAndIDOnly(){
+
+        try {
+            ArrayList<Doctor> docs = new ArrayList<Doctor>();
+            // get docs
+            String docsSQL = "SELECT * FROM SUser U, Staff S WHERE U.user_id = S.user_id and S.isDoctor = True";
+            PreparedStatement getDocs = c.prepareStatement(docsSQL);
+            
+            ResultSet docsRS = getDocs.executeQuery();
+    
+    
+            while (docsRS.next()) {
+                Doctor newDoc = new Doctor(docsRS.getString("name"));
+                newDoc.userID = docsRS.getInt("user_id");
+                System.out.println(docsRS.getString("name"));
+                docs.add(newDoc);
+            }
+            getDocs.close();
+            return docs;
+            // Doctor[] docA = (Doctor[]) docs.toArray();
+            // return docA;
+            
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e);
+            // System.exit(0);
+        }
+
+
+
+
+
+
+        return null;
+    }
+
+
+    void addNurseVisit(Patient currPatient, Visit currVisit, Doctor currDoctor){
+        try {
+            String newVisitSQL = "INSERT INTO Visit (patient_id, date, height, weight, temp, bpsystolic, bpdiastolic, testname, testresult, complete, doctor_id) VALUES (?, CAST(? AS DATE), ?, ?, ?, ?, ?, ?, ?, 'FALSE', ?);";
+            PreparedStatement newVisit = c.prepareStatement(newVisitSQL);
+            newVisit.setInt(1, currPatient.userID);
+            newVisit.setString(2, currVisit.date);
+            newVisit.setInt(3, currVisit.vitals.height);
+            newVisit.setDouble(4, currVisit.vitals.weight);
+            newVisit.setDouble(5, currVisit.vitals.temp);
+            newVisit.setInt(6, currVisit.bpsystolic);
+            newVisit.setInt(7, currVisit.bpdiastolic);
+            newVisit.setString(8, currVisit.testName);
+            newVisit.setString(9, currVisit.testResult);
+            newVisit.setInt(10, currDoctor.userID);
+            System.out.println(newVisit.toString());
+            ResultSet rs = newVisit.executeQuery();
+            newVisit.close();
+
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e);
+            // System.exit(0);
+        }
     }
 
 }

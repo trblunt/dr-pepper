@@ -5,7 +5,10 @@ import java.time.LocalDate;
 public class Visit {
 
     public String date;
-    public String tests;
+    public String testName;
+    public String testResult;
+    public int bpsystolic;
+    public int bpdiastolic;
     public String notes;
     public String reasonForVisit;
     public Vitals vitals;
@@ -22,9 +25,9 @@ public class Visit {
     }
 
     // use this method after pressing submit on the Test/Perscribe tab of Doctor panel
-    public void setDoctorNotes(String tests, String notes) {
-        this.tests = tests;
-        this.notes = notes;
+    public void setDoctorNotes(String test_name, String test_result) {
+        this.testName = test_name;
+        this.testResult = test_result;
     }
 
     // this is to be displayed on past visits tab in Patient and Doctor portal
