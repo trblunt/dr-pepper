@@ -97,6 +97,7 @@ public class NurseAddPatientInfoController {
         String[] bpArr = currVitals.bloodPressure.split("/");
         currVisit.bpsystolic = Integer.parseInt(bpArr[0]);
         currVisit.bpdiastolic = Integer.parseInt(bpArr[1]);
+        currVisit.reasonForVisit = this.visitReasonInput.getText();
         Server.getServer().addNurseVisit(this.patient, currVisit, this.doctor);
         // nurse.enterVitals(patient, height, weight, temp, bloodPressure, allergies, reasonForVisit);
 
