@@ -371,6 +371,23 @@ public class Server {
         }
     }
 
+    void addPerscription(String name, int pid){
+        try {
+            String newVisitSQL = "INSERT INTO Perscription (user_id, medicationname) VALUES (?, ?);";
+            PreparedStatement newVisit = c.prepareStatement(newVisitSQL);
+            newVisit.setInt(1, pid);
+            newVisit.setString(2, name);
+            System.out.println(newVisit.toString());
+            ResultSet rs = newVisit.executeQuery();
+            newVisit.close();
+
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e);
+            // System.exit(0);
+        }
+    }
+
     ArrayList<Visit> getActiveVisitsForDoctor(Doctor doctor){
         System.out.println("Getting all Active Patients");
         System.out.println(doctor.userID);

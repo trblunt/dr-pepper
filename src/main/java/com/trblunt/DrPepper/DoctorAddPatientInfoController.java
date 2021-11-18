@@ -81,8 +81,12 @@ public class DoctorAddPatientInfoController {
 
     @FXML
     void handleSendToPharmacyAction(ActionEvent event) {
+        //TODO: server
+        Server.getServer().addPerscription(prescriptionSubmitField.getText(), patient.userID);
         doctor.perscribeMeds(patient, prescriptionSubmitField.getText());
+
         prescriptionSubmitField.setText("");
+
     }
 
     @FXML
