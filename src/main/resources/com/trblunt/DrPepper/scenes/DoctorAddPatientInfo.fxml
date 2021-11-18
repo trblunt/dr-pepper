@@ -250,33 +250,10 @@
                                        </VBox.margin>
                                     </Text>
                                     <HBox />
-                                    <ScrollPane hbarPolicy="NEVER" prefHeight="385.0" prefViewportHeight="258.0" prefViewportWidth="570.0" prefWidth="738.0" vbarPolicy="ALWAYS">
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="385.0" prefViewportHeight="400.0" prefViewportWidth="570.0" prefWidth="738.0" vbarPolicy="ALWAYS">
                                        <content>
-                                          <GridPane prefHeight="381.0" prefWidth="712.0">
-                                             <children>
-                                                <Text fx:id="pastVisitsText" strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.rowIndex="1">
-                                                   <GridPane.margin>
-                                                      <Insets left="5.0" />
-                                                   </GridPane.margin>
-                                                </Text>
-                                             </children>
-                                             <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="115.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="138.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                          </GridPane>
+                                          <Text fx:id="pastVisitsText" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                          </Text>
                                        </content>
                                     </ScrollPane>
                                  </children>
@@ -302,11 +279,6 @@
                                           <GridPane prefHeight="381.0" prefWidth="712.0">
                                              <children>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" GridPane.rowIndex="1">
-                                                   <GridPane.margin>
-                                                      <Insets left="5.0" />
-                                                   </GridPane.margin>
-                                                </Text>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" />
                                                    </GridPane.margin>
