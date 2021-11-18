@@ -55,5 +55,17 @@ To install, follow the steps below:
 
 
 
+---------------------------------------------------------------------
+
+Known Bugs:
+
+(list bugs here with dates)
 
 
+---------------------------------------------------------------------
+
+Contact Instructions:
+
+For additional information or questions, please contact any of the emails listed below for further support on the issue:
+
+(asurite emails)
