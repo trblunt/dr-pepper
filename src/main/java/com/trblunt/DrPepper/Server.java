@@ -55,6 +55,7 @@ public class Server {
             if (rs.next() == true) {
                 Patient patient = new Patient(rs.getString("name"), rs.getString("email"), rs.getString("address"), dob, rs.getString("insuranceProvider"), rs.getInt("insuranceID"), rs.getString("pharmacyAddress"));
                 patient.userID = rs.getInt("user_id");
+                
                 // get visits
                 String visitsSQL = "SELECT * FROM Visit WHERE patient_id = ?";
                 PreparedStatement getVisits = c.prepareStatement(visitsSQL);
@@ -65,7 +66,7 @@ public class Server {
                 while (visits.next()){
                     Visit visit = new Visit();
                     visit.date = visits.getString("date");
-                    
+                    visit.reasonForVisit = visits.getString("reason");
                     Vitals vitals = new Vitals(visits.getInt("height"), visits.getInt("weight"), visits.getFloat("temp"), "blood presure", "allergies");
                     visit.vitals =  vitals;
                     visit.reasonForVisit = "Test: " + visits.getString("testname") + " Result: " + visits.getString("testresult");
@@ -433,7 +434,7 @@ public class Server {
 
     void saveDocVisit(Patient currPatient, Visit currVisit, Doctor currDoctor){
         try {
-            String updateVisitSQL = "UPDATE Visit SET  height = ?, weight = ?, temp = ?, bpsystolic = ?, bpdiastolic = ?, testname = ?, testresult = ?, complete = 'True' WHERE visit_id = ?";
+            String updateVisitSQL = "UPDATE Visit SET  height = ?, weight = ?, temp = ?, bpsystolic = ?, bpdiastolic = ?, testname = ?, testresult = ?, complete = 'True', reason = ? WHERE visit_id = ?";
             PreparedStatement updateVisit = c.prepareStatement(updateVisitSQL);
             
             updateVisit.setInt(1, currVisit.vitals.height);
@@ -443,7 +444,8 @@ public class Server {
             updateVisit.setInt(5, currVisit.bpdiastolic);
             updateVisit.setString(6, currVisit.testName);
             updateVisit.setString(7, currVisit.testResult);
-            updateVisit.setInt(8, currVisit.visitID);
+            updateVisit.setString(8, currVisit.reasonForVisit);
+            updateVisit.setInt(9, currVisit.visitID);
             System.out.println(updateVisit.toString());
             ResultSet rs = updateVisit.executeQuery();
             updateVisit.close();
