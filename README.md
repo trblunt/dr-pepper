@@ -10,9 +10,13 @@ Tuesday 9:00-10:15 am
 Group Member List:
 
 Elizabeth Arnold
+
 Tommy Blunt
+
 Josue Cortez
+
 Harrison Lisk
+
 Henry O'Scannlain-Miller
 
 ---------------------------------------------------------------------
