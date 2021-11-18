@@ -60,19 +60,19 @@ public class Server {
                 PreparedStatement getVisits = c.prepareStatement(visitsSQL);
                 getVisits.setInt(1, patient.userID);
                 ResultSet visits = getVisits.executeQuery();
-
+                
                 ArrayList<Visit> pastVisits = new ArrayList<Visit>();
                 while (visits.next()){
                     Visit visit = new Visit();
                     visit.date = visits.getString("date");
-       
+                    
                     Vitals vitals = new Vitals(visits.getInt("height"), visits.getInt("weight"), visits.getFloat("temp"), "blood presure", "allergies");
                     visit.vitals =  vitals;
                     visit.reasonForVisit = "Test: " + visits.getString("testname") + " Result: " + visits.getString("testresult");
                     pastVisits.add(visit);
                 }
-                ArrayList<String> persc = new ArrayList<String>();
-                ArrayList<String> immun = new ArrayList<String>();
+                ArrayList<String> persc = perscriptionsForPatientID(patient.userID);
+                ArrayList<String> immun = immunForPatientID(patient.userID);
 
                 String prevH = "previous health issues";
                 History ph = new History(pastVisits, persc, immun, prevH);
@@ -87,6 +87,50 @@ public class Server {
             System.out.println(e);
             // System.exit(0);
         }
+        return null;
+    }
+
+    ArrayList<String> perscriptionsForPatientID(int id){
+        try {
+            String perscSQL = "SELECT * FROM Perscription WHERE user_id = ?";
+            PreparedStatement getVisits = c.prepareStatement(perscSQL);
+            getVisits.setInt(1, id);
+            ResultSet rs = getVisits.executeQuery();
+            
+            ArrayList<String> perscs = new ArrayList<String>();
+            while (rs.next()){
+                String p = rs.getString("medicationname") + " " + rs.getInt("quantityperday");
+                perscs.add(p);
+                System.out.println(p);
+            }
+            return perscs;
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e);
+        }
+
+        return null;
+    }
+
+    ArrayList<String> immunForPatientID(int id){
+        try {
+            String perscSQL = "SELECT * FROM Immunization WHERE user_id = ?";
+            PreparedStatement getVisits = c.prepareStatement(perscSQL);
+            getVisits.setInt(1, id);
+            ResultSet rs = getVisits.executeQuery();
+            
+            ArrayList<String> perscs = new ArrayList<String>();
+            while (rs.next()){
+                String p = rs.getString("name");
+                perscs.add(p);
+                System.out.println(p);
+            }
+            return perscs;
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e);
+        }
+
         return null;
     }
 
