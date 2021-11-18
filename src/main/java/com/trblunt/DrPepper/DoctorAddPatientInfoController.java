@@ -136,6 +136,7 @@ public class DoctorAddPatientInfoController {
         String[] bpArr = vitals.bloodPressure.split("/");
         visit.bpsystolic = Integer.parseInt(bpArr[0]);
         visit.bpdiastolic = Integer.parseInt(bpArr[1]);
+        visit.reasonForVisit = this.visitReasonInput.getText();
         vitals.allergies = this.allergyInput.getText();
         patient.record.currentVisit.reasonForVisit = this.visitReasonInput.getText();
         patient.record.patientHistory.previousHealthIssues = this.previousHealthIssuesInput.getText();
