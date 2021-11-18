@@ -35,10 +35,17 @@ SELECT setval('visit_id_seq', 3, true);
 
 
 INSERT INTO Perscription VALUES
-(1, 2, 'red pill', 1);
-SELECT setval('perscription_id_seq', 1, true);
+(1, 2, 'red pill', 1),
+(2, 2, 'blue pill', 1);
+SELECT setval('perscription_id_seq', 2, true);
 
 
 INSERT INTO Allergy VALUES
 (1, 2, 'Gluten');
 SELECT setval('allergy_id_seq', 1, true);
+
+
+INSERT INTO Immunization VALUES
+(1, 2, 'covid-19'),
+(2, 2, 'herpies');
+SELECT setval('immunization_id_seq', 2, true);

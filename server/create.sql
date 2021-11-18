@@ -89,3 +89,14 @@ CREATE TABLE Allergy (
     FOREIGN KEY (user_id) REFERENCES Patient(user_id),
     PRIMARY KEY (allergy_id)
 );
+
+CREATE SEQUENCE immunization_id_seq;
+
+CREATE TABLE Immunization (
+    immunization_id BIGINT NOT NULL DEFAULT NEXTVAL('perscription_id_seq'),
+    user_id SERIAL NOT NULL,
+    name VARCHAR(50),
+    -- key
+    FOREIGN KEY (user_id) REFERENCES Patient(user_id),
+    PRIMARY KEY (immunization_id)
+);
