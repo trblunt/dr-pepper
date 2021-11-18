@@ -51,15 +51,8 @@ To install, follow the steps below:
 
 1. Clone the repository: `git clone https://github.com/trblunt/dr-pepper.git`.
 2. Change the current working directory of your terminal to the cloned project.
-3. Run `mvn javafx:run` to run the program.
-
-
-
----------------------------------------------------------------------
-
-Known Bugs:
-
-(list bugs here with dates)
+3. Download and install Apache Maven
+4. Run `mvn javafx:run` to run the program.
 
 
 ---------------------------------------------------------------------
@@ -68,4 +61,8 @@ Contact Instructions:
 
 For additional information or questions, please contact any of the emails listed below for further support on the issue:
 
-(asurite emails)
+hlisk@asu.edu
+emarmol@asu.edu
+jgcortez@asu.edu
+trblunt@asu.edu
+hoscannl@asu.edu
