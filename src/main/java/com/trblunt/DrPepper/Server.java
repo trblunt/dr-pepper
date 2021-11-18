@@ -347,7 +347,7 @@ public class Server {
 
     void addNurseVisit(Patient currPatient, Visit currVisit, Doctor currDoctor){
         try {
-            String newVisitSQL = "INSERT INTO Visit (patient_id, date, height, weight, temp, bpsystolic, bpdiastolic, testname, testresult, complete, doctor_id) VALUES (?, CAST(? AS DATE), ?, ?, ?, ?, ?, ?, ?, 'FALSE', ?);";
+            String newVisitSQL = "INSERT INTO Visit (patient_id, date, height, weight, temp, bpsystolic, bpdiastolic, testname, testresult, complete, doctor_id, reason) VALUES (?, CAST(? AS DATE), ?, ?, ?, ?, ?, ?, ?, 'FALSE', ?, ?);";
             PreparedStatement newVisit = c.prepareStatement(newVisitSQL);
             newVisit.setInt(1, currPatient.userID);
             newVisit.setString(2, currVisit.date);
@@ -359,6 +359,7 @@ public class Server {
             newVisit.setString(8, currVisit.testName);
             newVisit.setString(9, currVisit.testResult);
             newVisit.setInt(10, currDoctor.userID);
+            newVisit.setString(11, currVisit.reasonForVisit);
             System.out.println(newVisit.toString());
             ResultSet rs = newVisit.executeQuery();
             newVisit.close();

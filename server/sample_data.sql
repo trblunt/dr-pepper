@@ -28,9 +28,9 @@ INSERT INTO Pharmacy VALUES
 
 
 INSERT INTO Visit VALUES  
-(1, 1, '5/23/2016', 68, 155, 98.3, 100, 80, 'is cool', 'yeah', 'FALSE', 4),
-(2, 1, '9/3/2018', 69, 170, 97.9, 132, 90, 'is still cool', 'yep', 'FALSE', 4),
-(3, 2, '1/1/1984', 52, 120, 100.3, 140, 120, 'is loyal', 'no', 'FALSE', 4);
+(1, 1, '5/23/2016', 68, 155, 98.3, 100, 80, 'is cool', 'yeah', 'FALSE', 4, 'inflamed sense of self worth'),
+(2, 1, '9/3/2018', 69, 170, 97.9, 132, 90, 'is still cool', 'yep', 'FALSE', 4, 'stubbed toe'),
+(3, 2, '1/1/1984', 52, 120, 100.3, 140, 120, 'is loyal', 'no', 'FALSE', 4, 'got rubbed the wrong way');
 SELECT setval('visit_id_seq', 3, true);
 
 

@@ -61,6 +61,7 @@ CREATE TABLE Visit (
     testResult VARCHAR(50),
     complete BOOLEAN,
     doctor_id BIGINT,
+    reason VARCHAR(200),
     -- key
     FOREIGN KEY (patient_id) REFERENCES Patient(user_id),
     FOREIGN KEY (doctor_id) REFERENCES Staff(user_id),
