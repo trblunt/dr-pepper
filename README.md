@@ -49,9 +49,9 @@ Install Instructions:
 To install, follow the steps below:
 
 
-1. Download the dr-pepper git repository onto you machine.
-2. Download code interface that includes javafx support, as this will be necessary for the GUI to function (vscode or intelliJ are recommended)
-3. To run the program, open 
+1. Clone the repository: `git clone https://github.com/trblunt/dr-pepper.git`.
+2. Change the current working directory of your terminal to the cloned project.
+3. Run `mvn javafx:run` to run the program.
 
 
 
