@@ -75,7 +75,8 @@ public class DoctorAddPatientInfoController {
     @FXML
     protected void handleBackAction(ActionEvent event) throws IOException {
         this.updatePatient();
-        App.setRoot("DoctorPickPatient");
+        DoctorPickPatientController controller = App.setRoot("DoctorPickPatient");
+        controller.setDoctor(doctor);
     }
 
     @FXML
@@ -132,6 +133,9 @@ public class DoctorAddPatientInfoController {
         vitals.height = Integer.parseInt(this.heightInput.getText());
         vitals.temp = Double.parseDouble(this.temperatureInput.getText());
         vitals.bloodPressure = this.bloodPressureInput.getText();
+        String[] bpArr = vitals.bloodPressure.split("/");
+        visit.bpsystolic = Integer.parseInt(bpArr[0]);
+        visit.bpdiastolic = Integer.parseInt(bpArr[1]);
         vitals.allergies = this.allergyInput.getText();
         patient.record.currentVisit.reasonForVisit = this.visitReasonInput.getText();
         patient.record.patientHistory.previousHealthIssues = this.previousHealthIssuesInput.getText();
